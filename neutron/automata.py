@@ -107,7 +107,7 @@ class Neutron:
             self.T.remove(transition)
 
     def __str__(self,):
-        return ''.join([f'{t.mode1.name} --> {t.mode2.name}\n' for t in self.T.ts])
+        return '\n'.join([f'{t.mode1.name} --> {t.mode2.name}' for t in self.T.__dict__.values()])
 
 if __name__ == "__main__":
    pass 

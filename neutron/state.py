@@ -15,8 +15,8 @@ class State:
             for name, value in statevars.items():
                 setattr(self, name, value)
 
-        elif type(statevars) == None:
-            pass 
+        elif type(statevars) == type(None):
+            pass
 
         else:
             raise Exception(f'Unsupported data type {type(statevars)}.')

@@ -20,4 +20,15 @@ Neutron
     - state variables
     - transitions
 
+# Automata
+The automata is comprised of a set of modes, a set of transitions, and a set of state variables. Additionally, the automata can take inputs and give outputs.
+
+# Mode
+A mode is a state variable of the automata that dictates which transitions can be taken. From specific modes, only certain transitions are defined. In the context of the automata, we turn these modes into a set and input them when constructing the automata.
+
+# Transition
+A transition is an action taken during one timestep of the automata. In this case, we assume that every timestep takes one transition of the automata. Again, we create a set of transitions and provide them as input when building the automata.
+
+# State
+The set of state variables to maintain during the lifetime of the automata.
 
