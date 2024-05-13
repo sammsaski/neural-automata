@@ -4,10 +4,20 @@ We propose a novel model of computation with neural automata. Like classic autom
 
 # Model
 Neutron
-- Nodes
+- Modes
   - Name
   - Neural Network
 - Transitions
   - Nodes
   - Neural Network
-  
+ - States
+
+1. Maintain an active state
+    - state variables
+2. Be able to change modes
+    - neural controller
+3. Be able to update state
+    - state variables
+    - transitions
+
+

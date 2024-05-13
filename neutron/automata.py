@@ -1,65 +1,82 @@
+from re import error
 from typing import Any, DefaultDict, List
 import random
 
-class Mode:
-    """A mode in the neural automata."""
-    def __init__(self, name: str, nn):
-        self.name = name
-        self.nn = nn
-
-    def infer(self, x):
-        return self.nn(x)
-
-    def __str__(self,):
-        return f'Mode `{self.name}`'
-
-class Transition:
-    """For defining the logic of a transition between nodes.
-    We must keep track of the mode we need to transition to
-    """
-    def __init__(self, nn):
-        self.nn = nn
-
-    def __call__(self, input,) -> Any:
-        return self.nn(input)
+from neutron.mode import Mode, MS
+from neutron.state import State 
+from neutron.transition import Transition, TS
 
 class Neutron:
     """A neural automata."""
-    def __init__(self, modes: List, directed=True):
+    def __init__(self, nn, M: MS, T: TS, S: State = State(), directed=True):
         """The building of every automata will begin by defining the number of modes
         desired.
 
         An automata is made up of:
         - M : a set of modes
         - S : a set of state variables
-        - R : a set of transitions between modes
+        - T : a set of transitions between modes
         - I : a set of initial modes that are a subset of S
         - X : a set of input variables
-        - O : a set of output variables
+        - Y : a set of output variables
         """
-        self.modes = modes 
-        self.edges = {}
-
-        self.state_vars = DefaultDict()
-
-        self.num_modes = len(self.modes)
-        self.num_edges = len(self.edges)
-
+        self.M = M 
+        self.T = T
+        self.S = S
         self.directed = directed
+        self.nn = nn # neural controller
 
-        self.initial_modes= []
-        if len(self.initial_modes) == 1:
-            self.current_mode= self.initial_modes[0]
-        else:
-            self.current_mode= random.choice(self.initial_modes)
+        if self.M:
+            self.I = [m for m in self.M.modes if m.initial] # TODO: change T to inherit from dictionary
+            if len(self.I) == 0: 
+                raise error('No initial states defined.')
+
+            if len(self.I) == 1:
+                self.current_mode= self.I[0]
+            else:
+                self.current_mode= random.choice(self.I)
     
-    def move(self,):
-        pass
+    def move(self, x) -> Transition:
+        """Logic for deciding which transition to take.""" 
+        # 0 = digit
+        # 1 = letter
 
+        res = self.nn(x)
+
+        # this should return the transition to take
+        # TODO: make sure transitions have UIDs so that we can refer to them safely
+        if self.current_mode == 0 and res == 1:
+            return 
+        elif self.current_mode == 0 and res == 0:
+            return
+        elif self.current_mode == 1 and res == 0:
+            return
+        else:
+            # self.current_mode == 1 and res == 1
+            return
+
+    def step(self, x):
+        """At every step, we take an input decide which NN to use with the
+        neural controller, and then perform the desired task."""
+        
+        # determine which transition to take 
+        t = self.move(x)
+
+        # infer
+        res = self.nn(x)
+
+        # update state variables after inference
+        self.state_vars['x'] += 1
+        self.state_vars['y'] += 1
+
+    # ------------------------------------------------ #
+    # ------------------ MODE METHODS ---------------- #
+    # ------------------------------------------------ #
     def add_mode(self, new_mode) -> None:
-        self.modes.append(new_mode)
-        self._update_num_modes()
-        return
+        if self.M:
+            self.M.append(new_mode)
+            self._update_num_modes()
+            return
 
     def build_edge(self, mode1: Mode, mode2: Mode, t: Transition) -> None:
         self.edges[(mode2, mode2)] = t
@@ -70,18 +87,27 @@ class Neutron:
         pass
 
     def _update_num_modes(self,):
-        self.num_modes= len(self.modes) 
+        self.num_modes= len(self.M) 
 
     def _update_num_edges(self,):
         self.num_edges = len(self.edges) 
 
+    # ------------------------------------------------ #
+    # --------------- TRANSITION METHODS ------------- #
+    # ------------------------------------------------ #
+    def createT(self, mode1, mode2):
+        pass
+
+    def addT(self, transition):
+        if self.T:
+            self.T.append(transition)
+
+    def removeT(self, transition):
+        if self.T:
+            self.T.remove(transition)
+
     def __str__(self,):
-        return ''.join([f'{mode1.name} --> {mode2.name}\n' for mode1, mode2 in self.edges.keys()])
+        return ''.join([f'{t.mode1.name} --> {t.mode2.name}\n' for t in self.T.ts])
 
 if __name__ == "__main__":
-    # build modes 
-    mode1 = Mode(name='Mode 1', nn=None) # leave None for now
-    mode2 = Mode(name='Mode 2', nn=None)
-
-    print(mode1)
-    print(mode2)
+   pass 
