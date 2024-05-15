@@ -36,4 +36,4 @@ class State:
             setattr(self, statevars, args[0])
     
     def __str__(self) -> str:
-        return '\n'.join([f'{attr} : {value}' for attr, value in self.__dict__])
+        return '\n'.join([f'{attr} : {value}' for attr, value in self.__dict__.items()])

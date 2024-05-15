@@ -22,12 +22,21 @@ class Neutron:
         """
         self.M = M 
         self.T = T
+
+        # add ref for this automaton to the transitions, may want to change this to be a TS operation instead of individual transitions
+        for t in T.__dict__.values():
+            t.add_ref(self) 
+
         self.S = S
         self.directed = directed
         self.nn = nn # neural controller
 
+        # characteristics
+        self.num_modes = len(M)
+        self.num_edges = len(T)
+
         if self.M:
-            self.I = [m for m in self.M.modes if m.initial] # TODO: change T to inherit from dictionary
+            self.I = [m for m in self.M.__dict__.values() if m.initial] # TODO: change T to inherit from dictionary
             if len(self.I) == 0: 
                 raise error('No initial states defined.')
 
@@ -35,25 +44,28 @@ class Neutron:
                 self.current_mode= self.I[0]
             else:
                 self.current_mode= random.choice(self.I)
-    
+
     def move(self, x) -> Transition:
         """Logic for deciding which transition to take.""" 
         # 0 = digit
         # 1 = letter
 
-        res = self.nn(x)
+        if self.nn:
+            res = self.nn(x)
+        else:
+            res = 0 if x.isnumeric() else 1
 
         # this should return the transition to take
         # TODO: make sure transitions have UIDs so that we can refer to them safely
-        if self.current_mode == 0 and res == 1:
-            return 
-        elif self.current_mode == 0 and res == 0:
-            return
-        elif self.current_mode == 1 and res == 0:
-            return
+        if self.current_mode == self.M.Digits and res == 1:
+            return self.T.m1m2 
+        elif self.current_mode == self.M.Digits and res == 0:
+            return self.T.m1m1
+        elif self.current_mode == self.M.Letters and res == 0:
+            return self.T.m2m1
         else:
             # self.current_mode == 1 and res == 1
-            return
+            return self.T.m2m2
 
     def step(self, x):
         """At every step, we take an input decide which NN to use with the
@@ -61,14 +73,14 @@ class Neutron:
         
         # determine which transition to take 
         t = self.move(x)
+        t()
 
         # infer
-        res = self.nn(x)
+        if self.nn:
+            res = self.nn(x)
 
-        # update state variables after inference
-        self.state_vars['x'] += 1
-        self.state_vars['y'] += 1
-
+        
+ 
     # ------------------------------------------------ #
     # ------------------ MODE METHODS ---------------- #
     # ------------------------------------------------ #

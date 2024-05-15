@@ -12,9 +12,22 @@ class Mode:
         return self.nn(x)
 
     def __str__(self,):
-        return f'Mode `{self.name}`'
+        return f'{self.name}'
 
 class MS:
     """The set of modes in the neural automata."""
     def __init__(self, modes):
-        self.modes = modes
+        if type(modes) == list:
+            for m in modes:
+                setattr(self, m.name, m)
+        
+        elif type(modes) == dict:
+            for name, m in modes.items():
+                setattr(self, name, m)
+
+        else:
+            raise Exception(f'Unsupported data type for modes: {type(modes)}.')
+
+    def __len__(self):
+        return len(self.__dict__)
+
