@@ -1,10 +1,12 @@
-from re import error
 from typing import Any, DefaultDict, List
 import random
 
 from neutron.mode import Mode, MS
 from neutron.state import State 
 from neutron.transition import Transition, TS
+
+
+# ! TODO ! -- Refactor this to be abstract methods and build out the original example + new example with mathematical operators
 
 class Neutron:
     """A neural automata."""
@@ -31,10 +33,7 @@ class Neutron:
         self.directed = directed
         self.nn = nn # neural controller
 
-        # characteristics
-        self.num_modes = len(M)
-        self.num_edges = len(T)
-
+        # define an initial mode for the automaton
         if self.M:
             self.I = [m for m in self.M.__dict__.values() if m.initial] # TODO: change T to inherit from dictionary
             if len(self.I) == 0: 
@@ -47,25 +46,7 @@ class Neutron:
 
     def move(self, x) -> Transition:
         """Logic for deciding which transition to take.""" 
-        # 0 = digit
-        # 1 = letter
-
-        if self.nn:
-            res = self.nn(x)
-        else:
-            res = 0 if x.isnumeric() else 1
-
-        # this should return the transition to take
-        # TODO: make sure transitions have UIDs so that we can refer to them safely
-        if self.current_mode == self.M.Digits and res == 1:
-            return self.T.m1m2 
-        elif self.current_mode == self.M.Digits and res == 0:
-            return self.T.m1m1
-        elif self.current_mode == self.M.Letters and res == 0:
-            return self.T.m2m1
-        else:
-            # self.current_mode == 1 and res == 1
-            return self.T.m2m2
+        raise NotImplementedError('This method needs to be implemented.')
 
     def step(self, x):
         """At every step, we take an input decide which NN to use with the
@@ -73,50 +54,16 @@ class Neutron:
         
         # determine which transition to take 
         t = self.move(x)
+
+        # take the transition
         t()
 
         # infer
         if self.nn:
             res = self.nn(x)
 
-        
- 
-    # ------------------------------------------------ #
-    # ------------------ MODE METHODS ---------------- #
-    # ------------------------------------------------ #
-    def add_mode(self, new_mode) -> None:
-        if self.M:
-            self.M.append(new_mode)
-            self._update_num_modes()
-            return
-
-    def build_edge(self, mode1: Mode, mode2: Mode, t: Transition) -> None:
-        self.edges[(mode2, mode2)] = t
-        self._update_num_edges()
-        return
-
     def check_neutron(self,):
-        pass
-
-    def _update_num_modes(self,):
-        self.num_modes= len(self.M) 
-
-    def _update_num_edges(self,):
-        self.num_edges = len(self.edges) 
-
-    # ------------------------------------------------ #
-    # --------------- TRANSITION METHODS ------------- #
-    # ------------------------------------------------ #
-    def createT(self, mode1, mode2):
-        pass
-
-    def addT(self, transition):
-        if self.T:
-            self.T.append(transition)
-
-    def removeT(self, transition):
-        if self.T:
-            self.T.remove(transition)
+        raise NotImplementedError('This method needs to be implemented.') 
 
     def __str__(self,):
         return '\n'.join([f'{t.mode1.name} --> {t.mode2.name}' for t in self.T.__dict__.values()])

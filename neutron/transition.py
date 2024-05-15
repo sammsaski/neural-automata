@@ -35,7 +35,6 @@ class Transition:
             
 
 class TS:
-    # TODO: Implement this like State
     def __init__(self, ts: List):
         for t in ts:
             if not hasattr(self, t.id):
