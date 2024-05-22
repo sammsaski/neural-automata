@@ -56,14 +56,24 @@ class Neutron:
         t = self.move(x)
 
         # take the transition
-        t()
+        # take_input might be unnecessary, we can just pass the args to the network if it needs them i.e. use *args
+        if t.take_input:
+            t(x)
+        else:
+            t()
 
         # infer
-        if self.nn:
-            res = self.nn(x)
+        #if self.nn:
+        #    res = self.nn(x)
 
     def check_neutron(self,):
-        raise NotImplementedError('This method needs to be implemented.') 
+        raise NotImplementedError('This method needs to be implemented.')
+
+    def update_mode(self, m):
+        if m not in self.M:
+            raise Exception(f'{m} not in the set of modes {self.M}.')
+
+        self.current_mode = m
 
     def __str__(self,):
         return '\n'.join([f'{t.mode1.name} --> {t.mode2.name}' for t in self.T.__dict__.values()])
