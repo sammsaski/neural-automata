@@ -7,33 +7,33 @@ from neutron.transition import Transition, TS
 # TODO: Refactor transitions, so that there are no longer individual transitions
 #       and instead the transitions are modeled by functions in the TS.
 
-def m1m2(N, T):
+def m1m2(N):
     """N is a reference to the automaton."""
     states = N.S
     states.y = max(states.x, states.y)
     states.x = 1
-    N.current_mode = T.mode2 
+    N.current_mode = N.M.Letters
     return
 
-def m2m1(N, T):
+def m2m1(N):
     states = N.S
     states.y = max(states.x, states.y)
     states.x = 1
-    N.current_mode = T.mode2
+    N.current_mode = N.M.Digits 
     return
 
-def m1m1(N, T):
+def m1m1(N):
     states = N.S
     states.y = max(states.x, states.y)
     states.x += 1
-    N.current_mode = T.mode2
+    N.current_mode = N.M.Digits 
     return
 
-def m2m2(N, T):
+def m2m2(N):
     states = N.S
     states.y = max(states.x, states.y)
     states.x += 1
-    N.current_mode = T.mode2
+    N.current_mode = N.M.Letters
     return
 
 class LongestStreakAutomaton(N.Neutron):
