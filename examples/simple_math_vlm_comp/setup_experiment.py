@@ -40,7 +40,7 @@ def generate_operand(fixed_length=None):
 def evaluate_expression(arithmetic_expression):
     """
     Given an arithmetic expression (as a list of characters describing it), return the output of the
-    arithmetic expression.
+    arithmetic expression solving from left to right.
     """
     operands = []
     operators = []
