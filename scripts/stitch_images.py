@@ -75,7 +75,6 @@ def create_expression(digits, operators, target_operands, target_operators, file
     # load the data
     # data = np.load(fp)
     # images = data[:, 0] # training images have 200331 samples that are (28, 28)
-    digits_list = digits.tolist()
     
     # get the images to be used for the operators
     filtered_operators = [random.choice(operators[operators[:, 1] == op].tolist()) for op in target_operators]
