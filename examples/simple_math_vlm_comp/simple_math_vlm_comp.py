@@ -10,6 +10,7 @@ import time
 import torch
 import numpy as np
 import ollama
+from PIL import Image
 
 # local
 import neutron.automata as N
@@ -71,10 +72,10 @@ def neural_automaton(arithmetic_expression):
 
 def vlm(model_str, sample_fp, true_expression):
     """
-    Given an arithmetic expression (as a list of images describing it), return the output of the arithmetic expression
+    Given an arithmetic expression (as an image), return the output of the arithmetic expression
     described by the operands and operators.
 
-    arithmetic expression (list): a list of filepaths to pngs representing the image
+    arithmetic expression (list): a png representing the arithmetic expression
     """
     # with open(sample_fp, "rb") as image:
         # encoded_image = base64.b64encode(image.read()).decode("utf-8")
@@ -111,6 +112,47 @@ def vlm(model_str, sample_fp, true_expression):
     return res['message']['content'], end - start, res2['message']['content'], end2 - start2
 
 
+def vlm_sequence(model_str, sample_fp):
+    """
+    Given an arithmetic expression (as a list of images describing it), return the output of the arithmetic expression
+    described by the operands and operators.
+
+    model_str (str): the name of the VLM to use
+    sample_fps (str): filepath of the directory containing the images (pngs) to give as input
+    """
+    image_fps = [os.path.join(sample_fp, image_fp) for image_fp in os.listdir(sample_fp)]
+
+    input_prompt = '''
+        You will be provided a sequence of input images. Contained in each image will be
+        either a digit (0-9) or an operator (+, -, /, *). Read these together to make an
+        arithmetic expression. You need to solve these left to right, i.e. keep a running
+        of the value as you read in each image to make valid arithmetic expressions. For
+        example, given a sequence of images like ['5', '+', '1', '*', '2], you would first
+        get read the valid expression '5+1' and evaluate it to 6. Then, you would read the
+        next operator and operand to get the valid expression '6*2', which is evaluated
+        to 12.
+
+        The output must be in the format <numerical expression in image>=<solution>. 
+        DO NOT give me any other output. Also, DO NOT use LaTeX. These are simple expressions 
+        and can be expressed without the use of LaTeX.'
+    '''
+
+    start = time.time()
+    res = ollama.chat(
+        model=model_str,
+        messages=[
+            {
+                'role': 'user',
+                'content': input_prompt,
+                'images': image_fps
+            }
+        ]
+    )
+    end = time.time()
+
+    return res['message']['content'], end - start
+
+
 def get_vlm_output(model_str):
     """
     Given a set of arithmetic expressions, evaluate them with the neural automaton
@@ -144,9 +186,41 @@ def get_vlm_output(model_str):
             f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}, {res2}: {time_taken2}\n')
 
 
+def get_vlm_output_long_expression(model_str, num_operands):
+    """
+    Given a set of long arithmetic expressions (# operands > 2), evaluate them with the neural automaton
+    and the VLM and compare the results.
+
+    model_str (str): the name of the VLM model to use
+    """
+    data_fp = 'examples/simple_math_vlm_comp/data'
+    vlm_sequence_fp = os.path.join(data_fp, 'vlm', 'sequence', str(num_operands))
+    results_fp = os.path.join('examples/simple_math_vlm_comp/results/sequence', str(num_operands))
+    labels_fp = os.path.join(data_fp, f'{num_operands}_labels.txt')
+
+    samples = []
+
+    with open(labels_fp, 'r') as f:
+        for sample in os.listdir(vlm_sequence_fp):
+            sample_fp = os.path.join(vlm_sequence_fp, sample) # /path/to/vlm/sequence/{num_operands}/sample_0
+            line = f.readline()
+            samples.append([sample_fp] + [sample.strip() for sample in line.split(',')])
+
+    results_file = os.path.join(results_fp, f'results_{model_str}.txt')
+
+    for sample_num, (sample_fp, true_expression, true_solution) in enumerate(samples):
+        # if sample_num < 99:
+        #     continue
+        with open(results_file, 'a') as f:
+            res, time_taken = vlm_sequence(model_str, sample_fp)
+            print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}')
+            f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}\n')
+
+
 if __name__=="__main__":
     # get_vlm_output('llava-llama3')
     # get_vlm_output('llava:7b') # stopped on sample 98
     # get_vlm_output('moondream') # stopped on samples 70
     # get_vlm_output('bakllava')
-    pass
+
+    get_vlm_output_long_expression('llava-llama3', 3)
