@@ -1,0 +1,120 @@
+#0 -> 1+2%2+7-3-3*9*4=90.0 |  The input sequence from the images is:
+[6, '*', '3']
+
+The valid arithmetic expression to make using this sequence is:
+['6', '*', '3'] = <numerical expression in image>= 18 : 15.165611982345581
+#1 -> 18*47%38%87+36-36+53*45=2396.5154264972775 |  The sequence of images provided is:
+
+```
+['0', '+', '1', '*', '2']
+```
+
+Following the left-to-right evaluation as described, we get the expression `0 + 1`.
+
+Substituting the operands and evaluating from left to right, we first calculate `0 + 1`, which equals `1`. The next operator is `*` followed by the number `2`. Thus, the final valid arithmetic expression for this sequence of images is:
+
+```
+['0', '+', '1', '*', '2'] = 1 * 2 = 2
+``` : 18.59493088722229
+#2 -> 730+417-142+689*993*450*128*779=75478384396800 |  ['0', '-', '1', '/', '*'], <numerical expression in image>=<solution> : 11.188853025436401
+#3 -> 5009+3270%4657%5466%8428+5239-6058*4452=-3646187.999828198 |  ['0', '+', '9'], '<numerical expression in image>=9+0=9' : 14.335147857666016
+#4 -> 28635+56346*82955*83134-63885*33351-61217+96405=19545732122126477623 |  The sequence of input images shows:
+
+['0', '-', '9', '/']
+
+The valid arithmetic expression for this sequence would be:
+
+'0-9'
+
+This expression is evaluated to 6. To find the value, you start with the operator '-', then subtract each digit from left to right until you reach the end of the list. In this case, it starts with '0 - 9', so 9 gets subtracted first, followed by 8, and then 7, 6, 5, 4, 3, 2, and finally 1. After the final calculation, we are left with 1. So the valid expression for this sequence is '0-9', which equals 1.
+
+Please note that since the image shows only the numerical value without any operands or operators, it doesn't provide a valid arithmetic expression or a sequence of valid arithmetic expressions. The expression '0-9' is not an arithmetic operation; it represents a mathematical set (the integers from 0 to 9). If you have additional images to the left of this one that contain operators, I can help you interpret them and create a valid arithmetic expression. : 18.241624116897583
+#5 -> 743620-302332%146935%322672-163838*799712-543230*188483=-2.469575095622399e+16 |  The sequence of input images is as follows: ['1', '+', '2'].
+
+Based on the image-to-image arithmetic expression rules, we read these left to right, evaluating the current expression and then moving on to the next one. So, the first step would be to evaluate '1 + 2'. The addition of 1 and 2 equals 3. Now, we have the valid expression '3+1' which is evaluated to 4. : 14.19421911239624
+#6 -> 6503378*5346005*7113669*9748011%7936591*9683894-9575605-7245220=2.9416706611503795e+27 |  ['6', '*', '9'] = <solution>54 : 9.805944919586182
+#7 -> 40302242%22716536%24404309+26732794*32077502%62027708-90132180+89526906=13219535.5996162 |  The sequence of images provided is as follows:
+
+[0, '+', '1', '*', '2'], [2, '*', '3'], [5, '/', '4'], [7, '-', '8']
+
+To create a valid arithmetic expression using these images, we need to follow the sequence and evaluate the expressions as they are presented. The first image is ['0', '+', '1', '*', '2'], which translates to 0 + 1 = 1.
+
+The next image is [2, '*', '3'], which means 2 * 3 = 6.
+
+Next in the sequence is [5, '/', '4], which translates to 5 / 4 = 1.25.
+
+Finally, we have [7, '-', '8'], which means 7 - 8 = -1.
+
+Therefore, the arithmetic expression derived from the image sequence is:
+
+[0, '+', '1', '*', '2'] + [2, '*', '3'] * [5, '/', '4'] - [7, '-', '8'] = 1.25 + 6 - (-1) = 1.25 + 6 + 1 = 8.25
+
+So, the solution to this sequence of images is <numerical expression in image>=<solution>: 8.25 : 21.692474842071533
+#8 -> 714514810%876156165+822466377+787541333-795956406%405780340*477312931+444905728=1402461272.1790645 |  The arithmetic expression for this sequence would be:
+```
+-9+1*3=0
+0*4+7=-21
+-6+5 = -1
+-3 + 2 = -1
+``` : 15.089076042175293
+#9 -> 7%6-5*4*4+9%4-7=-20.083333333333332 |  The sequence of input images is:
+```
+1. 0
+2. -
+3. /
+4. 1
+5. +
+6. 9
+7. *
+8. 2
+9. +
+10. 2
+```
+The arithmetic expression formed by reading the images from left to right is:
+```
+0- (-1) / (2+2) + 9*2
+```
+To evaluate this expression, we first calculate `(-1)/(2+2)` which equals `-1/4 = -0.25`. Then we substitute this into the original expression to get:
+```
+0 - (-0.25) / (2+2) + 9*2
+```
+Next, we perform the division and addition operations from left to right. The result is `-0.25/4 = -0.0625`, so the final arithmetic expression is:
+```
+(-0.0625*2) + (-0.0625)
+```
+Evaluating this gives us `-0.125`. : 15.874288082122803
+#10 -> 73-40-57*91-69%43+84+33=64.6046511627907 |  0=0 : 16.045702934265137
+#11 -> 157-941*732%299+623-807*856%434=-4148.55835889216 |  Based on the provided sequence of images:
+
+[0, '+', '1', '*', '2']
+[3, '-', '5', '*', '7']
+[6, '+', '4', '*', '8']
+[9, '+', '9', '+', '0']
+[0, '*', '8', '+', '4']
+
+The valid arithmetic expression to be evaluated would be:
+
+'((0 + 1) * 2 - 5) * (7 - 6) + (8 + 9)'
+
+When solved, the result of this expression is:
+
+'10'
+
+Therefore, the valid arithmetic expression based on the provided sequence of images is '<((0+1)*2-5)*(7-6)+(8+ 9))>=10'. : 17.520963191986084
+#12 -> 7797%8979%2146-7105*5177-6794*2883*8903=-944285776517634.2 |  To create an arithmetic expression using the given sequence of images, we must follow the order of operations (PEMDAS/BODMAS). Here's how to read the images from left to right:
+
+1. 0 - The first number is 0.
+2. + - An addition operator is next. However, without knowing what the second number is, we cannot perform the addition. We will wait for the second number to be displayed.
+3. / - Then, there's a division operator followed by an unknown number (the second number in the sequence). We don't know the value of the second number yet, so we'll need another image to continue our arithmetic expression.
+
+At this point, since we don't have enough information from the images provided, we cannot create a valid arithmetic expression. We would need more input images to determine the sequence of numbers and operators accurately. Please provide additional images for me to continue with the arithmetic expression. : 19.37290906906128
+#13 -> 81146*42523*71898-52856%89632-74719%16409+99280=267955.0690065186 |  To create a valid arithmetic expression, I will read each image from left to right and update my running value accordingly:
+
+['0', '+', '1'] - The running value is currently 0. Since the operator is addition (+), we add 1 to the running value: Running value = 0 + 1 = 1.
+
+So, the arithmetic expression from these images is: 1 + 1 = 2. : 13.183706045150757
+#14 -> 315696+284600-309068-149196-309340%634722-659364+448249=-211115.26359256497 |  Based on the sequence of images provided:
+
+'2', '+', '5', '*', '3', '+', '4'
+
+The arithmetic expression formed by reading left to right is '2 + 5 * 3 + 4'. This expression evaluates to 17. : 14.541762828826904

@@ -1,0 +1,114 @@
+#0 -> 8+3*4+3*5-8*4=908 |  ['7', '*', '6'], <259>=<144> : 13.20739197731018
+#1 -> 19-85+91*76+82%66%40=0.7507575757575757 |  The sequence you provided is: ['3', '+', '2', '*', '4'], followed by ['1']. To make an arithmetic expression, we need to interpret the operators in the given order.
+
+First, read and evaluate each valid operator and operand as they appear:
+1. Start with 3 (the first number) and add 2 (the second number). The result of this addition is 5.
+2. Next, multiply the intermediate result by 4.
+
+So the valid arithmetic expression for this sequence of images would be: ['3', '+', '2', '*', '4']>['5', '*', '1']>6. The final answer is 6. : 17.52694296836853
+#2 -> 801%941%980+270+202*193*909=82806416.38352273 |  Based on the given sequence of images: ['0', '+', '1', '*', '2'], the valid arithmetic expression would be '1+0' which is evaluated to 1. Then, you would read the next operator and operand to get the valid expression '1*2', which is evaluated to 2. Therefore, the output must be '<1+0> * <2>' = <2>. : 11.196940898895264
+#3 -> 8412%3125*9973+9810-6341-2192*8710=244948893.9872 |  The sequence of input images is as follows:
+
+1. ['0', '*'] = 0 * 0 = 0
+2. ['9', '+', '2'] = 9 + 2 = 11
+3. ['5', '-', '4'] = 5 - 4 = 1
+4. ['8', '/', '7'] = 8 / 7 = 1.142857
+5. ['6', '*', '9'] = 6 * 9 = 54
+6. ['3', '+', '0'] = 3 + 0 = 3
+7. ['1', '*', '2'] = 1 * 2 = 2
+8. ['0', '*', '2'] = 0 * 2 = 0
+9. ['7', '-', '6'] = 7 - 6 = 1
+10. ['4', '+', '5'] = 4 + 5 = 9
+
+The resulting arithmetic expression in image is:
+
+['0', '*'] : 18.82694411277771
+#4 -> 70853+37864*10206-80841-66207-61368*12117=13442082234462 |  To create a valid arithmetic expression, we need to interpret each image in the sequence as it is presented and ensure that the operators are applied correctly from left to right. Here's the interpretation of the given sequence:
+
+['0', '*', '1'] = 1 (since * generally denotes multiplication)
+['1', '+', '2'] = 3 (following standard arithmetic rules for addition and multiplication)
+
+So, the resulting arithmetic expression would be:
+
+'0*1+'2 = 6 + 2 = 8. : 14.074244022369385
+#5 -> 227057+553282%647483-803047+137215%200636*975052=-3235808.370096301 |  The sequence of images is as follows:
+
+['0', '+', '1', '*', '2']
+
+Following the arithmetic expression rules, we should read these left to right. So, let's evaluate this step by step:
+
+1. Start with 0 (the first number).
+2. Add 1 (the second number after an addition operator), so we have 0 + 1 = 1.
+3. Multiply the previous result (which is now 1) by 2 (the third number after a multiplication operator), so we have 1 * 2 = 2.
+
+Therefore, the valid arithmetic expression for this sequence of images is: ['0', '+', '1', '*', '2'] = <1>. : 15.274080276489258
+#6 -> 8351586%8951951%7393164-4665883+1311758%9535978*8033850=-2825775.9331291444 |  To solve this sequence from left to right, we'll evaluate each image in the order it appears:
+
+- The first image is a digit '1'.
+- The second image is an operator '*', which suggests that we multiply the result of the previous operand by 3.
+- The third image is another digit '0'.
+- The fourth image is an operator '-', which indicates that we subtract the value of the previous operand from 5 (since that's what the next digit '5' represents).
+- The fifth image is a digit '2'.
+
+Now let's solve the sequence:
+
+1 * 3 - 5 = 0
+
+So the final expression and solution would be:
+
+['1', '*', '3', '-', '5', '2'] = 1*3-5 = 0 : 14.466137886047363
+#7 -> 30033852*48827483*36046840%85888547-77440900+45667673+26418450=615470601310425.6 |  ['4', '+', '1', '/', '*', '0'], ['5', '+', '3'] : 14.285526037216187
+#8 -> 433329110%803558131-336051210+362061082+700624516-734854153%645911837=-0.012725830353124478 |  The sequence provided consists of a single digit (7) followed by two operators. The first operator is multiplication (denoted as '*'), and the second operator is addition (denoted as '+'). Since the order of operations in mathematics typically follows the order BIDMAS (Brackets, Indices or Orders, Division and Multiplication, Addition and Subtraction), we should first calculate any expressions within brackets if present.
+
+Given this sequence: ['7', '*', '5', '+', '2'], following the standard order of operations:
+
+1. Calculate any expression within brackets if present (none in this case).
+2. Perform division and multiplication from left to right.
+3. Addition and subtraction from left to right.
+
+In this sequence, there are no expressions within brackets, so we will calculate the multiplication first:
+
+7 * 5 = 35
+
+Next, we perform addition:
+
+35 + 2 = 37
+
+So, the valid arithmetic expression for this sequence is: ['7', '*', '5', '+', '2'] = <37>. This sequence represents the calculation of 35 times 5 and then adding 2 to the result, resulting in the number 37. : 20.28019881248474
+#9 -> 5-2%1-3%3+1%4=0.25 |  Based on the input images provided, here is the arithmetic expression constructed from left to right:
+
+[0, -, 1, * , 2] = 2*(-1+1) = 2*(0-1+1) = 2*(0-2) = 2*-2 = -4
+
+The final arithmetic expression is '-4'. : 11.175044059753418
+#10 -> 14%37%98%74-77*93+16=-7144.995147657311 |  The sequence of input images is ['2', '+', '0', '*', '3']. To solve this left to right and keep a running total, we get:
+```python
+2 + 0 = 2
+2 * 3 = 6
+```
+So the valid arithmetic expression with the given sequence is `2 + 0 * 3`, which evaluates to `2`. : 16.838978052139282
+#11 -> 675-551%847%325%138-545*532=-289939.99826344935 |  Based on the sequence of images provided, here's the arithmetic expression in image and its solution:
+
+['2', '*', '1', '+', '0'] = 2 * 1 + 0 = 3 + 0 = 3. : 13.288647174835205
+#12 -> 8794*5815+9169+5063*6691%2100%9487=17179.07860490797 |  The sequence of images provided consists of the digits '9' and '0' in that order. As I read from left to right, evaluating each image as it appears, the final arithmetic expression is:
+
+[9 - 0] = 9 : 13.227880954742432
+#13 -> 92744+23349+23019%60661-66876%75244*88896=-79007.03090672355 |  The sequence of images provided is:
+
+['1', '/', '3'], ['4', '+', '5']
+
+To make an arithmetic expression, we would read these left to right:
+
+'1/3 + 4 + 5 = 2.67 + 9 = 11.67
+
+So the final arithmetic expression and its solution would be:
+
+['1', '/', '3'] ['4', '+', '5'] => 11.67 : 12.751145124435425
+#14 -> 120131%578502*975351*655249-783503+137084+549476=132714144140.71149 |  The arithmetic sequence provided by the input images is:
+
+['7', '+', '1', '*', '2']
+
+The solution to this sequence would be:
+
+<numerical expression in image>=6
+
+This is because you add 1 and multiply it by 2, resulting in 6. : 13.55089521408081

@@ -209,8 +209,8 @@ def get_vlm_output_long_expression(model_str, num_operands):
     results_file = os.path.join(results_fp, f'results_{model_str}.txt')
 
     for sample_num, (sample_fp, true_expression, true_solution) in enumerate(samples):
-        # if sample_num < 99:
-        #     continue
+        if sample_num > 14: # only first 50 samples
+            continue
         with open(results_file, 'a') as f:
             res, time_taken = vlm_sequence(model_str, sample_fp)
             print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}')
@@ -223,4 +223,10 @@ if __name__=="__main__":
     # get_vlm_output('moondream') # stopped on samples 70
     # get_vlm_output('bakllava')
 
-    get_vlm_output_long_expression('llava-llama3', 3)
+    # models = ['llava-llama3', 'llava:7b', 'moondream', 'bakllava']
+    models = ['bakllava']
+
+    for model in models:
+        # for num_operands in range(3, 11):
+        for num_operands in range(9, 11):
+            get_vlm_output_long_expression(model, num_operands)

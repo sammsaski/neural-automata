@@ -1,0 +1,28 @@
+#0 -> 1+1+2%5=0.8 | 1=1: 22.727705240249634
+#1 -> 26%30%80*41=0.4441666666666667 | The sequence you've provided is ['5', '+', '1', '*'] and you need to solve these left to right, i.e. keep a running value as you read in each image to make valid arithmetic expressions. For example, given this sequence, you would first get the valid expression '5+1' and evaluate it to 6. Then, you would read the next operator and operand to get the valid expression '6*2', which is evaluated to 12.
+
+The output must be in the format <numerical expression in image>=<solution>.: 27.972158908843994
+#2 -> 763*700-428+588=534260 | *2+5: 20.13240694999695
+#3 -> 5860+6348*3847+6054=46970230 | I'm sorry, I don't have the ability to execute code or solve equations. However, if you provide me with a sequence of images, I'll do my best to read them together to make valid arithmetic expressions. Please provide the sequence of images.: 24.580359935760498
+#4 -> 96108-38803+33172%81343=1.112289932753894 | 3+4=7
+1*2=6: 21.777114152908325
+#5 -> 542171*985623%625541*802637=685662676124.6097 | I'm sorry, but I don't have the ability to read images or provide a sequence of input images as requested. However, if you provide the sequence of images, I'll do my best to help you solve the arithmetic expression.
+
+Please provide me with the sequence of images.: 23.777449131011963
+#6 -> 6980489%8517064*5433415%1810212=2.4600241705652723 | 1+5=6: 20.413065195083618
+#7 -> 73260477+15650474*99978263%11186473=794634952.6484454 | 1. '3'
+2. '+' 
+3. '4'
+4. '*'
+5. '7'
+6. '-' 
+7. '3': 23.813878059387207
+#8 -> 228395842%735173086%200634605*851790967=1.318942256808939 | 1+2*3=6: 22.895621061325073
+#9 -> 9%2+6%2=5.25 | 1+3=4: 20.61233425140381
+#10 -> 85%89+18-39=-20.04494382022472 | 1+2=3
+
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *: 25.25608992576599
+#11 -> 129+636*790-668=603682 | Please provide a sequence of input images.: 22.302497148513794
+#12 -> 9423-4797+7139%8196=1.4354563201561736 | Sure, I'm ready to solve a sequence of arithmetic expressions for you! Please provide the images.: 22.694456100463867
+#13 -> 57388+31304*67906-55783=6022663169 | Sure! Please provide the sequence of images.: 21.044770002365112
+#14 -> 272232%501368+454017+115601=569618.5429784111 | 1+2=3: 22.28050398826599

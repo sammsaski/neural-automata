@@ -1,0 +1,88 @@
+#0 -> 5-3+3*2+4+9%9*6%3=5.111111111111111 | The sequence of input images for you is as follows:
+
+['1', '-', '4', '+', '2']
+
+Please read each image left to right to make a valid arithmetic expression.
+
+What is the solution to this arithmetic expression?: 23.32282590866089
+#1 -> 84%55+62%36+31%12-18-86%24=-4.2195671997755335 | I am sorry, I cannot generate a sequence of images for you to solve arithmetic expressions. However, I can provide you with some examples. 
+
+For example, consider the following sequence:
+```arduino
+[1, '+', 2, '*', 3]
+```
+To make a valid arithmetic expression, we need to read these numbers and operators left to right. The first number is '1', and the first operator is '+'. Therefore, our current result is '1+2'. The next operation is '\*', so our result becomes '(1+2)\*3', which evaluates to '6\*3=18'.
+
+So, the solution to this expression would be:
+```arduino
+18
+```
+I hope this example helps you understand how to make and evaluate arithmetic expressions.: 28.601691007614136
+#2 -> 548*863%981*583%520-673-511*229+104=-147259.81998745396 | In order to solve this sequence of images, we need to read each image from left to right and evaluate them as arithmetic expressions.
+
+1. The first image is a number '3', which corresponds to the value 3.
+2. The next image is an operator '+', indicating that we need to add the value 3 to another number or operator.
+3. The third image is another number '1', which corresponds to the value 1.
+4. The next image is an operator '-', indicating that we need to subtract the value 1 from the running total, which is 3 at this point.
+5. The fifth and final image is a number '2', which corresponds to the value 2.
+
+So, when we read these images left to right and evaluate them as arithmetic expressions, we get the following sequence:
+
+1 + 1 = 2
+2 - 1 = 1
+1 + 2 = 3
+
+Therefore, the solution of this sequence of images is '1 + 1 - 1 + 2', which evaluates to 3.: 25.213025093078613
+#3 -> 1919*8764%4766-9701*2236%4693%6658+3504-3231=272.558307950329 | 1+2=3: 22.79540991783142
+#4 -> 30987+72855+70388*97218%36064-98949%98057*68553-54209=204969.35550355996 | The given sequence of images is:
+
+1. The number '5'
+2. The addition operator '+'
+3. The number '1'
+4. The multiplication operator '*'
+
+The correct arithmetic expression is: '5'+1'*2', which evaluates to 6.
+
+Therefore, the output should be:
+
+<numerical expression in image>=<solution>
+
+'5'+1'*2'=6
+
+Note that this is a simple arithmetic expression and does not require any other mathematical operations or formatting. The solution should simply be the result of evaluating the given expression.: 24.47760796546936
+#5 -> 737973-186706-582235%272292%522031+925099+794100*224823-470193=386515006583.951 | '4'+1'=5
+*: 20.353209733963013
+#6 -> 5044906-9219400+2484252*4775745*5232309%6766878-2451788+3513191%3422448=-1823719.844321466 | 7+3=10: 18.127156019210815
+#7 -> 80009296-99224791+24872074%78208034%11250453%13625274%32569262%63552705%48578141=4.692501118450553e-39 | '3'+1'=4.
+
+*2=6.
+
+2+3'=5.: 22.911623001098633
+#8 -> 806808840*285508435%349104790+430743968*742767250*981298461*935133340*919063022%658206799=1.0379262734242587e+36 | 5+1=6, 6*2=12.: 22.750106811523438
+#9 -> 6*2-5-2-8%6-6%1-2=-8.5 | The sequence of input images is:
+
+1. '5'
+2. '+'
+3. '1'
+4. '*'
+5. '2'
+
+The valid arithmetic expression formed from these images is '5+1*2', which is evaluated to 6. The final output should be:
+<5>=<6>: 20.1925950050354
+#10 -> 85-95-24-73%36+38-51*25%66=-6.050084175084175 | '3' * '2'=6
+'4'+1'=5
+'-3'*2=-6: 25.526636123657227
+#11 -> 160+269-168%213*716-562+907*463%235=2408.2937368894213 | 5+1=6
+6*2=12
+12+3=15
+15-4=11
+11*2=22
+22/2=11
+11+7=18
+18-9=9: 22.87502884864807
+#12 -> 9744%9004*6816+5616%3811*6456%2992+9905*8678=86019425.84058155 | Please provide a sequence of numbers and/or operators to make an arithmetic expression. You must keep the value as you read in each image to make valid arithmetic expressions. For example, given a sequence of images like ['5', '+', '1', '*', '2'], you would first get read the valid expression '5+1' and evaluate it to 6. Then, you would read the next operator and operand to get the valid expression '6*2', which is evaluated to 12. The output must be in the format <numerical expression in image>=<solution>.: 25.40928316116333
+#13 -> 36347+34910+96073-47418-76137%13622%34164-23512-24976=-48487.99990593749 | 5+1=6
+6*2=12
+10-7=3
+1/4=0.25: 19.81733202934265
+#14 -> 164176%920046*208017*308440*824216-218732-443853*145013%145748=9388906759770744.0 | Please provide a sequence of input images.: 21.54340100288391
