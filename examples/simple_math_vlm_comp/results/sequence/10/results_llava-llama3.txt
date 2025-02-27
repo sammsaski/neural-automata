@@ -67,3 +67,42 @@ So, the output must be in the format `numerical expression in image>=solution` a
 #13 -> 14724-64911+81563+96923*56578+52939*57376*48026-17965%61125=327236577841804.2 | The input sequence is ['5', '+', '2', '*']. The running total is 10 and the last operator is not specified in the image description. Therefore, the output expression to evaluate is 10*. The solution is 100. Please note that this answer assumes that the problem was described accurately as given.: 22.153040170669556
 #14 -> 859349-433068+846630+765763*134460-990896+373750*410277%247407+237414=454574770652.60535 | 5+1=6
 6*2=12: 22.54547691345215
+#15 -> 6243349%1591253*5157304*2281046*5153513-7451887-8302074-8507983*3072494+2939011=7.308522220197183e+26 | 6+3=9: 22.368519067764282
+#16 -> 69269124*82924401%21764397*21603043+31550330%29587524-45195967%72925983+94995146+19988537=114983685.02265398 | 1: 18.54988408088684
+#17 -> 844009412%123968068%737687965%603571010*513713553-386624670%387785566*234204045%524428665*519273748=-231207681.83610976 | The sequence of input images is:
+
+['1', '+', '2', '-', '3']
+
+The arithmetic expression formed by this sequence is 1+2-3, which evaluates to -2. The solution for this expression is <solution>=<solution>-2.: 23.381422996520996
+#18 -> 5%8*3+1%2+4-7*6+1%4=-2.09375 | 1+1=2: 25.439260959625244
+#19 -> 18-34+63*50+39*29+31-60%67*11=11369.731343283584 | The input sequence is as follows:
+
+1. The number '1' is displayed in an image.
+2. The operator '-' (minus) is displayed in an image.
+3. The number '7' is displayed in an image.
+
+Based on the left to right order and the nature of the operators, a valid arithmetic expression can be formed. However, without any additional information or context, it's not possible to determine the intended meaning or solution of this sequence.: 22.400578022003174
+#20 -> 367+359+999+869*981-827-190%706+254%249=15.489840381355451 | *2=4: 22.343544721603394
+#21 -> 3688%1822%2017*1276*9126+2419*2882+7789%8857+4305=8895.555065769746 | The given sequence of images is:
+
+['4', '-', '3']
+
+To solve this sequence, we first perform the subtraction operation indicated by the '-' image. In other words, 4 - 3 = 1.
+
+Therefore, the output for this image sequence would be:
+'1'=1.: 20.303767204284668
+#22 -> 97717-26776%51334+60331+37118%86197-15369%56239%26874*79849=-0.8119200035035223 | 2+2+1=6: 19.803550004959106
+#23 -> 891409%853386*287328*404781+726935-858908-572213-861272*757711%239415=384482173671.7021 | 5+1=6
+
+1*2=12: 21.957193851470947
+#24 -> 5053509+8177073%8382613%3312171+6332564+6321666+9332503-8492398-5128986*4762549=39840384514603.27 | 3+2=5: 25.183411836624146
+#25 -> 35856286%91993071+93615425+77695289-56531540%73706776+92055211*18084545%19289210*85564313=7384722805371875.0 | I'm sorry, I cannot provide a sequence of input images as requested because I don't have the ability to create images. However, I can help you understand how to solve arithmetic expressions by following your instructions. 
+
+Based on your example, given a sequence of images like '5', '+', '1', '*', '2'], we would first read the valid expression '5+1' and evaluate it to 6. Then, we would read the next operator and operand to get the valid expression '6*2', which is evaluated to 12.
+
+Therefore, the output for this sequence of images should be:
+```javascript
+5+1=6
+6*2=12
+```
+Is there anything else I can help you with?: 31.049527883529663

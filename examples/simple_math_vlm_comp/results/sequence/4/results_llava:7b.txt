@@ -115,3 +115,97 @@ So, the complete expression with solutions to each image is:
 (1 * 2) + (7 / 3) - (9 + 4) * (5 - 6) = 2 + 2 - 13 * (-1) = -2.
 ```
 Note that in a real-world scenario, the arithmetic expression should be evaluated with decimal numbers to get the exact result. : 18.215708255767822
+#15 -> 8767852%5552302*1226152*4225815=8182291008838.457 |  To make an arithmetic expression from the given sequence of images, we read the values and operators from left to right. Here is the arithmetic expression with its evaluation:
+
+['8', '*', '4', '/', '2'] = <8*4>/2 = 32
+
+The first step is to multiply the two numbers that are currently in front of the division operator, which gives us 32. Then we divide by 2, resulting in 16 as the final solution for this expression. : 12.294015884399414
+#16 -> 84333094%45599149+47970077+80536679=128506757.84944448 |  The sequence of images provided shows:
+- An image containing a digit '5'
+- An image containing an operator '-'
+- An image containing a digit '2'
+
+Given this input, the arithmetic expression formed by reading the images left to right is: '5 - 2'. This results in the solution being '3', since subtracting 2 from 5 gives 3. There are no additional operators or operands to read after this, so the valid expression is '5 - 2 = 3'. : 10.670428276062012
+#17 -> 525128102*688185147%673205773%126956174=4.228330225369352 |  The input sequence of images is as follows: ['0', '+', '9', '/', '*'].
+
+To solve this left-to-right, we read each image in order from left to right. However, there's a problem with the second input; it shows both a digit and an operator simultaneously, which is not valid for arithmetic expressions. Since I am unable to process images, I can only give you the sequence of numbers and operators as described:
+
+0 + 9 / *
+
+Given the information above, the valid arithmetic expression we should read from left to right would be '(0+9)*.' Since this is not a standard notation for arithmetic expressions, it's important to note that the asterisk at the end does not denote a multiplication operation in this context but rather is part of the string that represents the image. In an actual evaluation scenario, you would evaluate '0+9' first to get 9, then divide by 2 to get 4.5, and finally multiply by 1 to get 4.5. However, since I am not able to perform calculations or provide numerical solutions within this context, we will simply proceed with the arithmetic expression as it is shown:
+
+(0+9)*.: 15.370231628417969
+#18 -> 7+6%4-8=-4.75 |  Based on the input sequence provided by the images:
+[0, '+', '1', '*', '3], it appears that the sequence is not arithmetic in nature as it contains only operators (addition and multiplication) without operands or digits. It seems there might be a mistake or missing part of the input sequence since you need both operands and operators to form a valid arithmetic expression. Please ensure that the input sequence is correct, and we can proceed with the evaluation. : 13.36847472190857
+#19 -> 84+56-72%80=0.85 |  The sequence provided is as follows:
+
+['5', '+', '1', '*', '2']
+'3', '/', '4']
+
+The arithmetic expression built from this sequence, read from left to right, would be:
+
+5 + 1 = 6
+6 * 2 = 12
+
+So the valid arithmetic expressions in image are:
+
+['5', '+', '1', '*', '2']='6*2'='72' (evaluated expression) : 10.344115018844604
+#20 -> 711*141+954-697=100508 |  To create a valid arithmetic expression from the input images, we read them in sequence and use the operators to build an expression:
+
+1. Start with the first number: ['0', '+', '3'] = 0 (since '+' represents addition).
+2. The next operator is multiplication: ['0', '*', '5'] = 0 * 5 = 0.
+3. Continue to read the sequence: ['0', '*', '5'] = 0.
+4. Next, we have another addition operation: ['0', '+', '1'] = 0 + 1 = 1.
+5. Then, multiplication again: ['0', '*', '5'] = 1 * 5 = 5.
+6. Finally, the last operator is subtraction: ['0', '-', '7'] = 5 - 7 = 1 (since subtracting from a negative number results in a positive value).
+
+Therefore, the valid arithmetic expression created from these images is:
+
+<[0+3]*(0*5)+(0+1)*5-7>=1. : 15.75043511390686
+#21 -> 5736%2358%1681%3728=3.881697829813881e-07 |  The sequence of images provided is: ['0', '*', '1', '+', '2']
+
+The arithmetic expression formed from reading left to right would be:
+<0> * <1> + <2>
+
+Evaluating the expression from left to right, we start with 0 and multiply by each subsequent number. Then, we add the result to the next number. In this case, it's:
+
+(0 * 1) = 0
+
+Adding this to 2:
+
+0 + 2 = 2
+
+So the solution to the arithmetic expression formed from the given sequence of images is <0>*<1>+<2>=2. : 11.775243997573853
+#22 -> 49117%53209*68243*63932=4027384896.6658273 |  Based on the sequence of images provided, here is the arithmetic expression read from left to right: ['5', '+', '1', '*', '2]. The valid expression is: 6 + 1 * 2 = 9. So the final result is 9. : 9.90889596939087
+#23 -> 646128%811496-212149*643017=-136414901551.07011 |  This is a sequence of images that represent an arithmetic expression:
+
+['1', '+', '2', '*', '3], which is read as follows:
+
+1 + 2 * 3 = 7
+
+The image contains the numbers 1, 2, and 3 with two addition operators (+) and one multiplication operator (*). The expression should be evaluated step by step, where the first step is to perform the multiplication (2*3), which equals 6. Then, you add 1 and 6 together (1+6), resulting in a final answer of 7. Therefore, the solution for this sequence of images is:
+
+['1', '+', '2', '*', '3'] = 7 : 13.099375247955322
+#24 -> 6023537+5829568+7095107*3363672=63735570154464 |  Based on the given sequence of images, the arithmetic expression is:
+
+<5+1> * <2> = 7*2 = <7*2=14>. : 11.428279876708984
+#25 -> 20867765*23079619+71883390*89302525=43009894366464901435625 |  The sequence of images provided is as follows:
+```python
+[4, '+', '0', '*']
+```
+Evaluating this sequence from left to right, the expression becomes `(4 + 0) * (1 - 1)`. Since the first number is 4 and the second number is 0, `4 + 0` equals 4. Now we have:
+```python
+[4, '+', '0', '*']
+[4, '=', '4', '*', '-', '1', '*', '1']
+```
+The next number is -1, so `(4 * -1) * 1`. Performing the multiplication first, we get `-4`. Now we have:
+```python
+[4, '+', '0', '*']
+[-4, '=', '-4', '*', '1', '*', '1']
+```
+Next, we multiply by 1, which results in -4. Therefore, the final arithmetic expression is:
+```python
+[4, '+', '0', '*']
+[-4, '=', '-4', '*', '1', '*', '1']
+[-4, '=', '-4', '*', '1', '*', '1']
+``` : 18.43643069267273

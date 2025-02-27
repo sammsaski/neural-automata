@@ -209,7 +209,7 @@ def get_vlm_output_long_expression(model_str, num_operands):
     results_file = os.path.join(results_fp, f'results_{model_str}.txt')
 
     for sample_num, (sample_fp, true_expression, true_solution) in enumerate(samples):
-        if sample_num > 14: # only first 50 samples
+        if sample_num < 15 or sample_num > 25: # samples 15-25 to get more
             continue
         with open(results_file, 'a') as f:
             res, time_taken = vlm_sequence(model_str, sample_fp)
@@ -224,9 +224,47 @@ if __name__=="__main__":
     # get_vlm_output('bakllava')
 
     # models = ['llava-llama3', 'llava:7b', 'moondream', 'bakllava']
-    models = ['bakllava']
+    models = ['llava:7b', 'moondream', 'bakllava']
+    # models = ['bakllava']
 
-    for model in models:
-        # for num_operands in range(3, 11):
-        for num_operands in range(9, 11):
-            get_vlm_output_long_expression(model, num_operands)
+    # for num_operands in range(6, 9):
+    #         get_vlm_output_long_expression('llava-llama3', num_operands)
+
+    # for num_operands in range(9, 11):
+    #     get_vlm_output_long_expression('llava-llama3', num_operands)
+
+    # model = 'llava:7b'
+    # for num_operands in range(3, 6):
+    #     get_vlm_output_long_expression('llava:7b', num_operands)
+    # for num_operands in range(6, 9):
+    #     get_vlm_output_long_expression('llava:7b', num_operands)
+    # for num_operands in range(9, 11):
+        # get_vlm_output_long_expression('llava:7b', num_operands)
+
+    # model = 'bakllava'
+    # for num_operands in range(3, 6):
+    #     get_vlm_output_long_expression('bakllava', num_operands)
+    # for num_operands in range(6, 9):
+    #     get_vlm_output_long_expression('bakllava', num_operands)
+    # for num_operands in range(9, 11):
+    #     get_vlm_output_long_expression('bakllava', num_operands)
+
+    # model = 'moondream'
+    # for num_operands in range(3, 6):
+    #     get_vlm_output_long_expression('moondream', num_operands)
+    # for num_operands in range(6, 9):
+    #     get_vlm_output_long_expression('moondream', num_operands)
+    for num_operands in range(9, 11):
+        get_vlm_output_long_expression('moondream', num_operands)
+
+
+
+    # for model in models:
+    #     for num_operands in range(3, 11):
+    #         get_vlm_output_long_expression(model, num_operands)
+
+    #     for num_operands in range(6, 9):
+    #         get_vlm_output_long_expression(model, num_operands)
+
+    #     for num_operands in range(9, 11):
+    #         get_vlm_output_long_expression(model, num_operands)

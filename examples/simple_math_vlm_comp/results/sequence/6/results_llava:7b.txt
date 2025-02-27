@@ -106,3 +106,73 @@ This is because you start with zero, divide by one, multiply by two, add three, 
 ['5', '+', '1'] -> '6'
 ['6', '*', '2'] -> '12'
 ``` : 11.940288066864014
+#15 -> 1916764*5198135-5099606*7788644*7163904-7181534=555939570521274136741276450 |  The sequence provided is as follows: ['5', '+', '1', '*', '2]. : 9.999826192855835
+#16 -> 32464560*92564939+69260315-22190775%18115992-57057287=108822674.9215652 |  The sequence of images provided appears to contain a digit (0) and an operator (+). To make an arithmetic expression using this information, we would first evaluate '0 +', which equals 0. However, there is no image following '+'. As a result, the expression '0 +' cannot be fully evaluated without additional context or input. Please provide more images to determine the complete expression and its solution. : 9.915249109268188
+#17 -> 706422344%141581775%652019558+639834359%834237834-515797123=-515797122.2330312 |  The arithmetic sequence from left to right is:
+
+['9', '*', '2'] = <9*2> = 18 : 9.656367778778076
+#18 -> 8+9*2+9-8%5=7.0 |  The sequence you've provided reads: ['0', '+', '1', '*', '2']. Using this sequence left-to-right and evaluating as you go, you would first compute the addition part: 0 + 1 = 1.
+
+Now, looking at the next operator in the sequence, we have an asterisk, which indicates that we should multiply our current value (which is 1) by the next number in the sequence (the second '*' operand): 1 * 2 = 2.
+
+The final valid arithmetic expression for this sequence would be: ['0', '+', '1', '*', '2'] => '0 + 1' => '1' => '1*2' => '2'. : 16.27829885482788
+#19 -> 95*24*58*24-15%85=37338.17647058824 |  The sequence of images provided is:
+
+['0', '/']
+['2']
+['1']
+['*']
+['3']
+
+The arithmetic expression read from these images is '2/1*3' which is evaluated to 6. : 10.526846885681152
+#20 -> 572+476%852*853%167-295=-288.71718534761465 |  The sequence of images provided is: ['0', '+', '1', '*'], ['5', '+', '1']
+
+To create a valid arithmetic expression, we should read these images in order from left to right. Following the rules for arithmetic expressions, we have:
+
+['0', '+', '1', '*'] = 1
+['5', '+', '1'] = 6
+
+The final expression is: [1] + [6] = 7. : 14.04606580734253
+#21 -> 9615*6199%9917%7963*2582%7240=0.2691730451474592 |  ['5', '+', '1', '*', '2'], '9', '*', '4']=<numerical expression in image>=<solution>. : 9.685577869415283
+#22 -> 43545*74748-54469*30816-93791+99400=100301371043465 |  ['0', '+', '4', '*', '1'], ['0', '+', '2', '/', '3']
+
+<0+4>*1=8
+
+['8', '+', '6', '/', '2']
+
+<0+4>*1=8
+
+<8+ : 11.366323947906494
+#23 -> 334117%788349%292541+787671*364682*891673=2.561325660098467e+17 |  Given the sequence of images, I will read them left to right as you instructed:
+
+['0', '+', '3', '*', '2'] => 3*2 = 6
+['6', '*', '2'] => 6*2 = 12
+
+The final arithmetic expression and its solution are:
+
+[3, '+', 2] => 5 + 2 = 7
+['7', '*', '4'] => 7*4 = 28: 13.240087985992432
+#24 -> 3808420*8875146+3283181-9308955*4658357-2467844=157453759310583566078 |  To create an arithmetic expression from the sequence of images you provided, we need to interpret each image as it appears in a left-to-right manner. Let's read through the sequence:
+
+1. Start with '5'.
+2. Move on to '+', which indicates that we should add the next number.
+3. Next is '1', which gets added to '5'.
+4. Then there's '*', indicating multiplication.
+5. The next number is '2', so we multiply 6 (the result of 5 + 1) by 2.
+
+Now, let's evaluate the expression:
+```
+5 + 1 = 6
+6 * 2 = 12
+```
+Therefore, the valid arithmetic expression is '<5+1,6*2>=<12>'. : 17.371854782104492
+#25 -> 88384065%90631561+82065798-77941753+11046401+40784549=55954995.975201845 |  The sequence of input images provided is:
+
+0 - 1 * + 3 / 2 - 4 * - 5 * 6 - 7 / 8 = 
+
+The arithmetic expression to solve this left-to-right is:
+0 (since the first image is 0) - (1+1)*(-(1/2)+3)/(2/8) + (-4*(-5))*6 + (-7)*(1/8) = 
+
+The solution to this expression, when evaluated in order, would be:
+
+(-1.5 + (-4*(-5))*6 + (-7)*(1/8)) = : 16.388930082321167

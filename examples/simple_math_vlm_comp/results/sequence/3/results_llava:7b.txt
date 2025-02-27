@@ -83,3 +83,33 @@ The final expression and solution are:
 #14 -> 156365%173186+195731=195731.90287321145 |  Based on the input images provided, we can construct the following arithmetic expression:
 
 ['0', '+', '1', '*', '2'] = 1 + (2 * 1) = 3 + 2 = 5. Therefore, the solution for this sequence of images is 5. : 9.690863132476807
+#15 -> 6339419%7806872%4401327=1.844967678738637e-07 |  To interpret the sequence of images into an arithmetic expression and evaluate it, we start by reading the first image, which is a number '5'. Then, since there is no explicit operator in this first image, the valid expression at this point would be '5' itself.
+
+The second image shows a multiplication operator '*', followed by the number '1'. The valid arithmetic expression at this point would be '5*1', which equals 5.
+
+The next sequence of images is not fully visible, but if we assume it follows the same pattern, the first image could be another number, and the second image will likely be an addition or multiplication operator. If we continue in this manner, evaluating each part of the expression one by one as we read the images, we can form a valid arithmetic expression and solve it. : 14.06615400314331
+#16 -> 97020375-61995983%10450457=3.351469892656369 |  The sequence provided is: ['1', '+', '0'] = <solution>1+0=1</solution>. : 7.941544055938721
+#17 -> 256298471+200343815*528109396=241157081847519256 |  ['0', '-'], ['1', '*'], ['5', '+']
+= <1*-(1+5)>=<-6>=6 : 8.202831745147705
+#18 -> 9*8%4=18.0 |  ['1', '+', '0'], ['0', '/', '2'] : 9.28364896774292
+#19 -> 18+97%23=5.0 |  The sequence of input images reads:
+['0', '+', '3'], ['5', '*', '9']
+
+The valid arithmetic expression from reading the images left to right is:
+'0 + 3': 8.26870608329773
+#20 -> 248*830+604=206444 |  ['+', '*', '3'], <1=>6 : 8.54366683959961
+#21 -> 5218+6172+4334=15724 |  In the given sequence of images, the arithmetic expression would be as follows:
+
+['5', '+', '1', '*', '2']= (5 + 1) * 2 = 7*2 = 14. : 8.298073053359985
+#22 -> 61996-19175%11351=3.772442956567703 |  ['5', '+', '1', '*', '2'], ['6', '*'] : 7.8863890171051025
+#23 -> 426485-598781*709689=-122276575944 |  Based on the given sequence of images, the valid arithmetic expression would be:
+
+['9', '+', '5', '*', '2'] = <9 + 5> * 2
+
+Evaluating this expression from left to right, we first calculate 9 + 5, which equals 14. Then we multiply the result by 2, resulting in 28 as the final solution. : 10.073383808135986
+#24 -> 9688881*6834894-9050540=66222465563074 |  The arithmetic expression from left to right based on the provided sequence of images is:
+
+0*9+7-3*2: 9.902068853378296
+#25 -> 23378455-42488318%54494823=-0.3506729987910962 |  The arithmetic expression constructed from the sequence of images provided is:
+['0', '+', '1', '*', '2', '/', '4', '=', '6'].
+This would lead to the valid arithmetic expression '0 + 1 * 2 / 4 ='. The solution to this expression would be 1.5. : 11.507485151290894

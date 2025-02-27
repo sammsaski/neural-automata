@@ -62,3 +62,39 @@ The solution is 0.: 24.365103006362915
 8*9=72
 9+8=17
 17+2=19: 23.602153062820435
+#15 -> 6339419%7806872%4401327=1.844967678738637e-07 | *2+3=5
++6
+-4
++8: 17.03039813041687
+#16 -> 97020375-61995983%10450457=3.351469892656369 | 1+2=3: 14.08159589767456
+#17 -> 256298471+200343815*528109396=241157081847519256 | 1+2=3
+7*9=27: 14.60331392288208
+#18 -> 9*8%4=18.0 | 2*3=6: 16.42734384536743
+#19 -> 18+97%23=5.0 | *5+2=7: 14.53532099723816
+#20 -> 248*830+604=206444 | The image is a sequence of white line drawings set against a black background. The first three images in the sequence depict the numbers 1, 2, and 3. The fourth image shows the plus sign (+). The fifth image shows the number 4. The final two images show the multiplication operator (\*).
+
+The sequence starts with the number 1 on the left side of each image, and each subsequent image shifts the number to the right by one unit.
+
+To complete this sequence, we need to find a number that, when multiplied by 2, gives us 6. This number is 4. Therefore, the solution for the entire sequence is:
+
+1*4 = 4
+2*4 = 8
+3*4 = 12
++4*4 = 20
+4*4 = 16: 22.216048002243042
+#21 -> 5218+6172+4334=15724 | 1+1=2
+2*3=6
+3-2=1
+4+5=9
+5*7=45: 15.66431188583374
+#22 -> 61996-19175%11351=3.772442956567703 | 1+5=6: 15.172469854354858
+#23 -> 426485-598781*709689=-122276575944 | 5+1=6
+
+6*2=12: 15.708559036254883
+#24 -> 9688881*6834894-9050540=66222465563074 | The sequence you provided is as follows:
+['1', '+', '2']
+
+The arithmetic expression formed from these images is '1+2'. The solution to this expression is 3. Therefore, the final output should be:
+<1>=<3>: 18.39463996887207
+#25 -> 23378455-42488318%54494823=-0.3506729987910962 | [4, '+', 2, '-', 1] = 3
+[3, '-', 7] = -4: 17.354499101638794
