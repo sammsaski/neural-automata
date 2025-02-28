@@ -50,7 +50,8 @@ def evaluate_expression(arithmetic_expression):
         if item in DIGIT_CHOICES:
             current_operand.append(item)
         else:
-            operands.append(int(''.join(current_operand))) # current operand over so add it to operands list
+            if current_operand:
+                operands.append(int(''.join(current_operand))) # current operand over so add it to operands list
             current_operand = [] # reset current operand
             operators.append(item) # store the operator
 
@@ -58,18 +59,24 @@ def evaluate_expression(arithmetic_expression):
         operands.append(int(''.join(current_operand)))
     
     # edge cases
-    if len(operands) != len(operands)-1:
+    if len(operators) != len(operands)-1:
         return -1
     
     if type(operands[0]) != int:
         return -1
     
-    if len(operands) < 2 or len(operators < 1):
+    if len(operands) < 2 or len(operators) < 1:
         return -1
 
     result = operands[0]
     for i, op in enumerate(operators):
-        result = OPS[op](result, operands[i+1]) # apply operator on next operand
+        # verify it's a legal operation (e.g. no division by 0)
+        op2 = operands[i+1]
+
+        if op == '%' and op2 == 0:
+            return -1 # invalid - can't divide by 0
+        
+        result = OPS[op](result, op2) # apply operator on next operand
     
     return result
 

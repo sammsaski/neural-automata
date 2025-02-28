@@ -30,6 +30,7 @@ from examples.simple_math_vlm_comp.setup_experiment import evaluate_expression
 
 DIGIT_CHOICES = [str(i) for i in range(10)]
 OPERATOR_CHOICES = ['+', '-', '%', '*']
+OP_MAP = {0: '%', 1: '*', 2: '+', 3: '-'}
 OPS = {'+': operator.add, '-': operator.sub, '*': operator.mul, '%': operator.truediv}
 
 
@@ -59,16 +60,67 @@ def neural_automaton(arithmetic_expression):
 
     predicted_expression = []
 
+    start = time.time()
+
     # use the automaton to predict the arithmetic expression
     for element in arithmetic_expression:
-        element_type = nn(element)
-        pred = digit_nn(element) if element_type == 0 else operator_nn(element)
+        type_logits = nn(element)
+        type_prob = torch.sigmoid(type_logits)
+        type_pred = (type_prob >= 0.5).float()
+
+        # digit classification
+        if type_pred == 0: 
+            logits = digit_nn(element)
+            pred = torch.argmax(logits)
+            pred = str(int(pred))
+
+        # operator classification
+        else:
+            logits = operator_nn(element)
+            pred = torch.argmax(logits)
+            pred = OP_MAP[pred.item()]
+        
         predicted_expression.append(pred)
 
     # solve the expression
     res = evaluate_expression(predicted_expression)
 
-    return res
+    end = time.time()
+
+    return res, end - start
+
+def get_na_output(num_samples, num_operands):
+    data_fp = 'examples/simple_math_vlm_comp/data'
+    na_fp = os.path.join(data_fp, 'na', str(num_operands))
+    results_fp = os.path.join('examples/simple_math_vlm_comp/results/na', str(num_operands))
+    labels_fp = os.path.join(data_fp, f'{num_operands}_labels.txt')
+
+    # create directory
+    if not os.path.isdir(results_fp):
+        os.mkdir(results_fp)
+
+    samples = []
+
+    with open(labels_fp, 'r') as f:
+        for sample_num in range(num_samples):
+            sample_fp = next((fp for fp in os.listdir(na_fp) if fp.startswith(f'sample_{sample_num}_')), None)
+            sample_fp = os.path.join(na_fp, sample_fp)
+            line = f.readline()
+            samples.append([sample_fp] + [sample.strip() for sample in line.split(',')])
+
+    results_file = os.path.join(results_fp, f'results.txt')
+
+    for sample_num, (sample_fp, true_expression, true_solution) in enumerate(samples):
+        # read the images and construct the sample list of images
+        sample_data = np.load(sample_fp)
+        arithmetic_expression = [torch.from_numpy(sample_data[i]).unsqueeze(0).float() for i in range(sample_data.shape[0])]
+        res, time_taken = neural_automaton(arithmetic_expression)
+
+        with open(results_file, 'a+') as f:
+            res, time_taken = neural_automaton(arithmetic_expression)
+            print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}')
+            f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}\n')
+
 
 def vlm(model_str, sample_fp, true_expression):
     """
@@ -224,7 +276,7 @@ if __name__=="__main__":
     # get_vlm_output('bakllava')
 
     # models = ['llava-llama3', 'llava:7b', 'moondream', 'bakllava']
-    models = ['llava:7b', 'moondream', 'bakllava']
+    # models = ['llava:7b', 'moondream', 'bakllava']
     # models = ['bakllava']
 
     # for num_operands in range(6, 9):
@@ -254,9 +306,8 @@ if __name__=="__main__":
     #     get_vlm_output_long_expression('moondream', num_operands)
     # for num_operands in range(6, 9):
     #     get_vlm_output_long_expression('moondream', num_operands)
-    for num_operands in range(9, 11):
-        get_vlm_output_long_expression('moondream', num_operands)
-
+    # for num_operands in range(9, 11):
+        # get_vlm_output_long_expression('moondream', num_operands)
 
 
     # for model in models:
@@ -268,3 +319,8 @@ if __name__=="__main__":
 
     #     for num_operands in range(9, 11):
     #         get_vlm_output_long_expression(model, num_operands)
+
+    for num_operands in range(2, 11):
+        get_na_output(100, num_operands=num_operands)
+
+    # get_na_output(100, num_operands=2)
