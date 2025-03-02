@@ -180,7 +180,7 @@ def vlm_sequence(model_str, sample_fp):
         arithmetic expression. You need to solve these left to right, i.e. keep a running
         of the value as you read in each image to make valid arithmetic expressions. For
         example, given a sequence of images like ['5', '+', '1', '*', '2], you would first
-        get read the valid expression '5+1' and evaluate it to 6. Then, you would read the
+        read the valid expression '5+1' and evaluate it to 6. Then, you would read the
         next operator and operand to get the valid expression '6*2', which is evaluated
         to 12.
 
