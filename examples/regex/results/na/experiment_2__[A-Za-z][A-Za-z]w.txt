@@ -1,0 +1,11 @@
+#0 -> quw=accept | quw=accept
+#1 -> liw=accept | llw=accept
+#2 -> fjw=accept | fjw=accept
+#3 -> qkw=accept | qkw=accept
+#4 -> tsw=accept | tsw=accept
+#5 -> iyyaswuc=reject | iyyagwuc=reject
+#6 -> f=reject | f=reject
+#7 -> fhllfaqs=reject | fhlifaqs=reject
+#8 -> rge=reject | rge=reject
+#9 -> dvlriwjjbr=reject | dylriwjjdr=reject
+String Classification Accuracy: 60.0%, Task Accuracy: 100.0%

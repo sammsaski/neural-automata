@@ -1,0 +1,10 @@
+#0 -> sh=accept | a-4b-3q-5t-u-v-w-x-y-z, reject : 0.6801609992980957
+#1 -> tg=accept | vqebzlq, reject : 3.404571771621704
+#2 -> td=accept | llylylylylylylylylylylylylylylylylylylylylylylylylylylylylylyly : 6.343525171279907
+#3 -> sk=accept | a [c-h] t, reject : 5.872153043746948
+#4 -> timeout
+#5 -> rbx=reject | a-z, q-t, b-l, x-x, accept : 8.674287796020508
+#6 -> xxjfudrbcy=reject | v, b, l, e, t, u, o, g, h, c, a, s, d, f, p, q, r, s, t, u, v, w, x, y, z, accept : 20.610419988632202
+#7 -> nmkc=reject | q-e-b-l-t-accept : 11.229259967803955
+#8 -> lxx=reject | A B C D E F G H J K L M N O P Q R S T U V W X Y Z : 9.235360145568848
+#9 -> zwbitevid=reject | d,accept : 18.920756101608276

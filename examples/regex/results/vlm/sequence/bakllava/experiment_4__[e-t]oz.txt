@@ -1,0 +1,10 @@
+#0 -> koz=accept | 4 letters a, b, c and d are given to you. They are all lowercase and in black. Your task is to predict what the next letter will be based on the current letter in the sequence. : 8.25482702255249
+#1 -> hoz=accept | 26 lowercase letters of the english alphabet. : 7.440004825592041
+#2 -> joz=accept | 26 classes of input images is a bit more than a quarter of the full alphabet set, which could make this challenge quite difficult. : 7.341023921966553
+#3 -> toz=accept | 26 classes of letters with no case distinction, join them together to make a string, and then predict whether each of the output images should be accepted or rejected by the [e-t]oz regular expression. : 8.116644859313965
+#4 -> ooz=accept | 26 classes of letters with a regular expression [e-t]oz. : 7.357280969619751
+#5 -> arfgbihg=reject | 6232 : 15.463367938995361
+#6 -> uchsksvsn=reject | 0 : 15.91041111946106
+#7 -> zuiy=reject | 1e-t oz. : 9.372663021087646
+#8 -> dtv=reject | 2 points for the letter V with no other letters, and nothing else. : 7.338365077972412
+#9 -> rqh=reject | 0 : 6.953211784362793

@@ -1,0 +1,11 @@
+#0 -> lesrbbbbyuuuuuu=accept | iesrbbbbyuuuuuu=reject
+#1 -> leeeeeeeeesdbbbz=accept | leeeeeeeeesdbbbz=accept
+#2 -> leeesabbbbbbbbbyuu=accept | leeesabbbbbbbbbyug=reject
+#3 -> lesnbbbbbbbbbyuuuu=accept | lesnbbbbgbbbbyuuuu=reject
+#4 -> leeeeeesobbbbbyuuu=accept | ieeeeeesobbbbbyuuu=reject
+#5 -> kehppl=reject | kehppl=reject
+#6 -> komybq=reject | kgmybq=reject
+#7 -> jf=reject | jf=reject
+#8 -> fkbgk=reject | fhbgk=reject
+#9 -> haftt=reject | haftt=reject
+String Classification Accuracy: 40.0%, Task Accuracy: 60.0%

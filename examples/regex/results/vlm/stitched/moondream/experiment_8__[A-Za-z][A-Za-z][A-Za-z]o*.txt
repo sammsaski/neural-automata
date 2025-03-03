@@ -1,0 +1,21 @@
+#0 -> mobooooooooooooo=accept | 
+ [accept, accept, accept] : 2.4940121173858643 |  : 0.04744768142700195
+#1 -> clcoooooooooooo=accept | 
+ [accept, accept, accept] : 1.3930470943450928 | 
+ Accept : 0.05886507034301758
+#2 -> cwroooo=accept | 
+ [accept, accept, accept] : 1.2662699222564697 |  : 0.045255184173583984
+#3 -> fqbooooooooooooooo=accept | 
+ [0.17, 0.13, 0.83, 0.31] : 1.3285341262817383 |  : 0.04285287857055664
+#4 -> abpoooooooooooo=accept | 
+ [accept, accept, accept] : 1.2568268775939941 | !!! : 0.05203723907470703
+#5 -> sidzhgexh=reject | 
+ [accept, accept, accept] : 1.2512917518615723 |  : 0.04429006576538086
+#6 -> kmfl=reject | 
+ [0.17, 0.13, 0.83, 0.31] : 1.3260879516601562 |  : 0.04366111755371094
+#7 -> ckarbct=reject |  : 1.3491768836975098 |  : 0.047055959701538086
+#8 -> udltatzzi=reject | 
+ [accept, accept] : 1.412574052810669 | 
+ Accept : 0.060266971588134766
+#9 -> xizrsvfz=reject | 
+ [accept, accept, accept] : 1.4498777389526367 |  : 0.04422712326049805

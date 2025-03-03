@@ -1,0 +1,10 @@
+#0 -> hperhh=accept | h[peo-u]er[A-z][f-k][a-z][e] : 17.072815895080566
+#1 -> hserkj=accept | h[pe]er[A-z][f-k] : 16.807842254638672
+#2 -> hterog=accept | egegegegegegegeeggeegeegeeegggeegegeegggg : 17.29008197784424
+#3 -> hserfk=accept | k : 16.22846484184265
+#4 -> hterij=accept | jxerz, accept : 16.933581829071045
+#5 -> rykeaec=reject | ceterp-tor-a-zf-e-h-u-r-e-j-p-m-l-b-i-n-o-s-t-a-z : 19.35630512237549
+#6 -> fjljdjxd=reject | kpefekcpxdthfkgkmzafgpxxzz : 19.43131422996521
+#7 -> h=reject | hpefkerzkrskvdfuigblysirrhaerxcknmltmdlfmmfnsnkkleevkzckqkmkllylkmmltf. <hpefkzkr> accept : 5.0293543338775635
+#8 -> rgvrruvg=reject | eight : 19.4303560256958
+#9 -> vuyosf=reject | y : 16.115833044052124

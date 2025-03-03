@@ -63,7 +63,7 @@ def generate_invalid_string(regex):
     # keep randomly generating strings until we get an invalid one
     while matches_regex(regex, s):
         # allow for wider strings
-        s = rstr.rstr(string.ascii_lowercase, 1, 30)
+        s = rstr.rstr(string.ascii_lowercase, 1, 20)
 
     return s
 
@@ -117,7 +117,7 @@ def setup_experiment():
     byclass = [[index for index, l in enumerate(labels) if l == target_label] for target_label in range(26)] # split dataset by class        
 
     # randomly choose the lengths of the regexs
-    regex_lengths = [random.randint(3, 11) for _ in range(10)]
+    regex_lengths = [random.randint(2, 7) for _ in range(10)]
 
     # generate the regexs
     regexs = [generate_random_regex(length=length) for length in regex_lengths]
@@ -137,7 +137,7 @@ def setup_experiment():
             os.mkdir(regex_stitched_fp)
         
         # generate random strings
-        accepted, rejected = generate_strings(regex, num_strings=50)
+        accepted, rejected = generate_strings(regex, num_strings=5)
         sample_strings = accepted + rejected
 
         # write these accepted and rejected strings to a .txt file

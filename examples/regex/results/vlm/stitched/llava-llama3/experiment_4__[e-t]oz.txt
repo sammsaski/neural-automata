@@ -1,0 +1,10 @@
+#0 -> koz=accept | [a, a]oz, accept : 3.0589659214019775 | Accept : 0.28337597846984863
+#1 -> hoz=accept | [vowels only, accept] : 3.107775926589966 | accept : 0.2768242359161377
+#2 -> joz=accept | rtoz,accept : 2.985206127166748 | In this image, there is a single word that reads "GO". This word is slightly tilted to the right and appears to be handwritten in white marker against a black background. The entire image is rendered in a grayscale aesthetic, emphasizing the contrast between the white text and the black background. The simplicity of the image draws attention to the word "GO", making it the central focus of the composition. : 2.7344698905944824
+#3 -> toz=accept | tjon, accept : 3.102447271347046 | accept : 0.24744701385498047
+#4 -> ooz=accept | dazzle, reject : 3.151942253112793 | Accept : 0.260495662689209
+#5 -> arfgbihg=reject | e-r-t-o-z accept : 3.0217058658599854 | Accept : 0.2542431354522705
+#6 -> uchsksvsn=reject | uchskvsn : 3.023088216781616 | accept : 0.25236988067626953
+#7 -> zuiy=reject | [zylly, accepted] : 3.0989151000976562 | LYLY : 0.31281304359436035
+#8 -> dtv=reject | tvoz, accept : 3.0541372299194336 | accept : 0.2986869812011719
+#9 -> rqh=reject | h t h : 3.065812110900879 | Accept : 0.27318811416625977

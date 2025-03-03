@@ -1,0 +1,10 @@
+#0 -> hcj=accept | 1st input image classified as letter a : 6.884881973266602
+#1 -> hct=accept | 26 classes of input images are provided to you in a sequence. For each image, tell me whether it falls under the category of a particular letter in the English alphabet (case insensitive). As a side note, the regular expression for this problem is hc[e-w]. Remember that only lowercase letters are allowed in your string and that you should output your predictions in the form <predicted string, accept/reject>. : 9.350528001785278
+#2 -> hcp=accept | 0 : 6.536550998687744
+#3 -> hce=accept | 0 : 6.728721857070923
+#4 -> hcj=accept | 26 classes of images are shown to make up a single letter of the alphabet. : 7.338316202163696
+#5 -> izcx=reject | 100% of the problems in this image will have a correct answer of "accept". The image itself is black and white and has an x in white on it. : 9.771299839019775
+#6 -> iqhzrffdyq=reject | 163205 : 16.161445140838623
+#7 -> rxnbj=reject | 3D image of a hand written in cursive. : 11.750776052474976
+#8 -> l=reject | 0 : 2.793426990509033
+#9 -> vzqce=reject | 1234567890 : 12.651402950286865

@@ -1,0 +1,11 @@
+#0 -> mobooooooooooooo=accept | mobooooooooonooo=reject
+#1 -> clcoooooooooooo=accept | clcoooooooooooo=accept
+#2 -> cwroooo=accept | cwrooqo=reject
+#3 -> fqbooooooooooooooo=accept | fqboooodoooooouooo=reject
+#4 -> abpoooooooooooo=accept | abpoooooooooooo=accept
+#5 -> sidzhgexh=reject | sldzhgexh=reject
+#6 -> kmfl=reject | kmfl=reject
+#7 -> ckarbct=reject | ckarbct=reject
+#8 -> udltatzzi=reject | uoltatzzi=reject
+#9 -> xizrsvfz=reject | xlzrsvfz=reject
+String Classification Accuracy: 40.0%, Task Accuracy: 70.0%

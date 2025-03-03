@@ -1,0 +1,11 @@
+#0 -> uuuuqqgslb=accept | uuuuqqqslb=accept
+#1 -> uuuuuukrwvlu=accept | uuzuuyhnwviu=reject
+#2 -> uuuuuuuuoqmflw=accept | uuuuuuuuoqmflw=accept
+#3 -> uuuuuuulipnlu=accept | uujuuuuiipnlu=reject
+#4 -> uuuuuuuuuuuuuunlhwlt=accept | uuuuuuuuuuuuuunlhwlt=accept
+#5 -> gbpwpzz=reject | gbpwpzz=reject
+#6 -> ik=reject | lk=reject
+#7 -> meufnyjpxp=reject | meufnyjppp=reject
+#8 -> f=reject | f=reject
+#9 -> ynmhelipao=reject | yamhehlpao=reject
+String Classification Accuracy: 40.0%, Task Accuracy: 80.0%

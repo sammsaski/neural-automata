@@ -1,0 +1,11 @@
+#0 -> amlxvcf=accept | amlxvcf=accept
+#1 -> fmlfhcf=accept | fmifhcf=reject
+#2 -> amliycf=accept | amliycf=accept
+#3 -> bmlxpcf=accept | bmixpcf=reject
+#4 -> fmldecf=accept | fmlnecf=accept
+#5 -> oue=reject | oue=reject
+#6 -> dzm=reject | dzm=reject
+#7 -> cp=reject | cp=reject
+#8 -> pefb=reject | pffb=reject
+#9 -> yahpc=reject | yahpc=reject
+String Classification Accuracy: 60.0%, Task Accuracy: 80.0%

@@ -1,0 +1,11 @@
+#0 -> hperhh=accept | hperhh=accept
+#1 -> hserkj=accept | hssskj=reject
+#2 -> hterog=accept | hterog=accept
+#3 -> hserfk=accept | hserfk=accept
+#4 -> hterij=accept | hterij=accept
+#5 -> rykeaec=reject | rmkeaec=reject
+#6 -> fjljdjxd=reject | fjljdjxj=reject
+#7 -> h=reject | h=reject
+#8 -> rgvrruvg=reject | rgvrruvg=reject
+#9 -> vuyosf=reject | vuyosf=reject
+String Classification Accuracy: 70.0%, Task Accuracy: 90.0%

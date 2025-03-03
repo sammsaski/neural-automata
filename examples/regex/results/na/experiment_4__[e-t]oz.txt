@@ -1,0 +1,11 @@
+#0 -> koz=accept | koz=accept
+#1 -> hoz=accept | xoz=reject
+#2 -> joz=accept | joq=reject
+#3 -> toz=accept | toz=accept
+#4 -> ooz=accept | ooz=accept
+#5 -> arfgbihg=reject | arfgbihg=reject
+#6 -> uchsksvsn=reject | uckgksvsn=reject
+#7 -> zuiy=reject | zuly=reject
+#8 -> dtv=reject | dtv=reject
+#9 -> rqh=reject | rqh=reject
+String Classification Accuracy: 60.0%, Task Accuracy: 80.0%

@@ -1,0 +1,10 @@
+#0 -> uuuuqqgslb=accept | e[0][0]r[0][1]t[0][2]a[0][3]z[0][4]l[0][5] : 21.658117055892944
+#1 -> uuuuuukrwvlu=accept | u+e+p+e+c+t+h+r+z+a+z+l=a+z. : 19.75298309326172
+#2 -> uuuuuuuuoqmflw=accept | aetptb, accept : 19.584877729415894
+#3 -> uuuuuuulipnlu=accept | P : 19.809420824050903
+#4 -> uuuuuuuuuuuuuunlhwlt=accept | lcm : 20.341695070266724
+#5 -> gbpwpzz=reject | Zzzz, accept : 18.79243278503418
+#6 -> ik=reject | k : 5.677434206008911
+#7 -> meufnyjpxp=reject | rpepteppzrppzzl accept : 19.927045106887817
+#8 -> f=reject | e, i, e, u, n, o, p, h, t, a, z, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, accept. : 5.159811019897461
+#9 -> ynmhelipao=reject | aahlepx : 19.24999189376831

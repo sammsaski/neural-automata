@@ -1,0 +1,48 @@
+#0 -> lesrbbbbyuuuuuu=accept |  <"leab", accept>  : 2.8569211959838867 |  Reject  : 0.2939450740814209
+#1 -> leeeeeeeeesdbbbz=accept |  <predicted string: lstuupqnzjpwwbvbxzuw*, reject>  : 3.0769128799438477 |  reject  : 0.30787110328674316
+#2 -> leeesabbbbbbbbbyuu=accept |  <predicted string, accept/reject>
+
+<"abcaebcdfghijklmnopqrstuvwxyz", accept>  : 3.233276844024658 |  Accept  : 0.3196878433227539
+#3 -> lesnbbbbbbbbbyuuuu=accept |  <predicted string, accept/reject>
+
+<"le+s[a-w]b+[x-z]u*", reject>  : 3.315601110458374 |  Reject  : 0.3218708038330078
+#4 -> leeeeeesobbbbbyuuu=accept |  <predicted string, accept/reject>: ["ace", "accept"]  : 2.9062652587890625 |  Reject  : 0.31388115882873535
+#5 -> kehppl=reject |  <predicted string, accept/reject>
+
+<tkecpluclkpocfhtnjnbbqwvchjmhqbwnr, reject>  : 3.399986982345581 |  Accept  : 0.2997298240661621
+#6 -> komybq=reject |  Based on the image provided, the sequence of letters appears to be: kombyqk8b0956g08
+
+Using the regular expression le+s[a-w]b+[x-z]u*, this string should be accepted by the regular expression as it matches the pattern. Therefore, the output is: <kombyqk8b0956g08, accept>  : 4.82203483581543 |  Reject  : 0.344102144241333
+#7 -> jf=reject |  Based on the sequence of images provided, the predicted string is "abcdefghijklmnopqrstuvwxyz". The regular expression le+s[a-w]b+[x-z]u* would match this string as it contains all lowercase letters of the English alphabet, and the repetition pattern indicated by the regular expression is present in the prediction. Therefore, the output should be "accept" to indicate that the predicted string meets the requirements specified by the regular expression.  : 5.10179591178894 |  Reject  : 0.3188142776489258
+#8 -> fkbgk=reject |  [philk, reject]  : 2.654473066329956 |  Reject  : 0.27674293518066406
+#9 -> haftt=reject |  This task involves identifying each letter in a sequence of images and then joining them to form a string that should be accepted by the regular expression provided.
+
+Let's examine the input image:
+
+The letters in this image, from left to right, are "h", "a", "t", "f".
+
+Now let's join these letters together:
+
+"hatf"
+
+To check if the string formed by joining these letters is accepted by the regular expression provided, we need to ensure that the input string matches the pattern described by the regular expression. Let's apply the regular expression to our output:
+
+The regular expression le+s[a-w]b+[x-z]u*
+
+This regular expression describes a pattern where:
+- "le" is at the beginning of the string (lookbehind).
+- One or more ("+") lowercase letters from 'a' to 'w' can occur, which is captured by "[a-w]".
+- A single letter from 'b' to 'z' must follow (captured by "s").
+- Another letter from 'x' to 'z' can occur one or more times ("+").
+- The string can end with zero or more lowercase letters ("u*" at the end).
+
+Applying this regular expression to our string "hatf":
+1. Does "le" match the lookbehind pattern? No, since there is no 'l' at the beginning of the input string, this should be a rejection.
+2. Do the letters from 'a' to 'w' appear in the string? Yes, they do with the 'h', 't', and 'f'.
+3. Does a lowercase letter from 'b' to 'z' appear? No, there is no 'v', 'y', or 'z' in our input string.
+4. Is there at least one letter from 'x' to 'z' present? No, there are no letters between 'x' and 'z'.
+5. Does the string end with zero or more lowercase letters ("u*")? Yes, since there is a single lowercase 'f' at the end of our string.
+
+Since we found a failure in step 2 (where we should have said "Yes"), but did not find matches for steps 3 and 4, the output should be:
+
+"reject" : 16.216851949691772 |  Reject  : 0.31818389892578125

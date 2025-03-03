@@ -1,0 +1,10 @@
+#0 -> lesrbbbbyuuuuuu=accept | 3rd image in the sequence, "i", is the last letter of the alphabet. : 16.98817205429077
+#1 -> leeeeeeeeesdbbbz=accept | 100% of the way you input the letter "e" will be accepted. If you put anything else, even a single extra character, it will be considered incorrect. : 17.28504776954651
+#2 -> leeesabbbbbbbbbyuu=accept | 0 : 16.69629192352295
+#3 -> lesnbbbbbbbbbyuuuu=accept | 6584729 : 16.880886793136597
+#4 -> leeeeeesobbbbbyuuu=accept | 1. a, b, c, d, e, f, g, h, j, k, l, : 18.09792995452881
+#5 -> kehppl=reject | 1. a string that contains only lowercase letters 2. join all of your predictions together to make a string 3. make sure to follow the case sensitive for the regular expression given : 14.894155025482178
+#6 -> komybq=reject | 1. a b c d e f g h i j k : 13.728602170944214
+#7 -> jf=reject | 6 letters a-z are shown in the image with a gray background. : 4.97942590713501
+#8 -> fkbgk=reject | 26 lowercase letters of the english alphabet as input images. : 11.551838159561157
+#9 -> haftt=reject | 4 points (x, y, z, w) forming a quadrilateral, with letters of the alphabet assigned to each point. : 12.12577509880066

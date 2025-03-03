@@ -1,0 +1,11 @@
+#0 -> quw=accept | 100% correct : 7.264557838439941
+#1 -> liw=accept | 26 letters of the alphabet are shown in a random order. The task is to predict and then confirm each letter as either acceptable or unacceptable based on the regular expression [A-Za-z]w. : 8.37793779373169
+#2 -> fjw=accept | 0 : 7.271643877029419
+#3 -> qkw=accept | 0 : 6.929768085479736
+#4 -> tsw=accept | 0 : 7.181950092315674
+#5 -> iyyaswuc=reject | 16-bit twos complementary color space. : 16.89168381690979
+#6 -> f=reject | 26 classes of images are given to you, each being a lowercase letter of the English alphabet. Your task is to predict the next letter in the sequence based on the current letter. When you have a predicted string, join all of your predictions together and create a regular expression using only lowercase letters. Finally, tell me "accept" if the string that you predict should be accepted by the regular expression or "reject" if it should not be accepted. Remember to always keep the lowercase letters and the format of the output in mind. : 5.784724950790405
+#7 -> fhllfaqs=reject | 
+A B C D E F G H J K L : 17.042386054992676
+#8 -> rge=reject | 26 classes of input images is part of the requirements for this problem. : 7.825993061065674
+#9 -> dvlriwjjbr=reject | 100% of images are black and white with a single exception. The exceptional image is in color, which must be a mistake, but I can tolerate it as long as it follows the color exception rule. : 17.994046211242676

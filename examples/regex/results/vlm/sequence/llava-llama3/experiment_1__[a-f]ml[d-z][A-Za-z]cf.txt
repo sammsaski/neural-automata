@@ -1,0 +1,10 @@
+#0 -> amlxvcf=accept | a-z-c-f-accept : 15.990458250045776
+#1 -> fmlfhcf=accept | [a-z][A-Za-za-z]cf. : 17.63436794281006
+#2 -> amliycf=accept | a-d-e-f-g-h-j-k-l-m-n-o-p-q-r-s-t-u-v-w-x-y-z-a-z-c-f : 19.77591586112976
+#3 -> bmlxpcf=accept | pPmLdZcF : 19.630640983581543
+#4 -> fmldecf=accept | Cfz : 19.93490195274353
+#5 -> oue=reject | e, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z. : 10.820184230804443
+#6 -> dzm=reject | mmlzcm, mmmlzzzccf, mmmllmmlzzzc, mmmmmllmmlzzzc, mmmlmmmlzzzc, mmmmmmmllmzzzc, mmmmmmmmmllzzzc : 10.5605947971344
+#7 -> cp=reject | aekpct, accept : 6.160233020782471
+#8 -> pefb=reject | mpefmnregefklxuocjzdf,accept : 11.980120182037354
+#9 -> yahpc=reject | a-ffmlknd-za-cf, reject : 14.469050168991089

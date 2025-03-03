@@ -33,7 +33,7 @@ OPERATOR_CHOICES = ['+', '-', '%', '*']
 OP_MAP = {0: '%', 1: '*', 2: '+', 3: '-'}
 OPS = {'+': operator.add, '-': operator.sub, '*': operator.mul, '%': operator.truediv}
 
-
+# TODO: Rename to neurosymbolic_automaton
 def neural_automaton(arithmetic_expression):
     """
     Given an arithmetic expression (as a list of images describing it), return the output of the arithmetic expression
@@ -139,7 +139,7 @@ def vlm(model_str, sample_fp, true_expression):
         messages=[
             {
                 'role': 'user',
-                'content': 'Solve the mathematical operation in the image. The output must be in the format <numerical expression in image>=<solution>. DO NOT give me any other output. Also, DO NOT use LaTeX. These are simple expressions and can be expressed simply.',
+                'content': 'Solve the mathematical expression in the image. The output must be in the format <numerical expression in image>=<solution>. DO NOT give me any other output. Also, DO NOT use LaTeX. These are simple expressions and can be expressed simply.',
                 # 'images': [encoded_image]
                 'images': [sample_fp]
             }
@@ -148,20 +148,21 @@ def vlm(model_str, sample_fp, true_expression):
     end = time.time()
 
     # task 2 : evaluating the arithmetic expression
-    start2 = time.time()
-    true_expression = true_expression.replace('%', '/') # replace for nicer reading format by the LLM
-    res2 = ollama.chat(
-        model=model_str,
-        messages=[
-            {
-                'role': 'user',
-                'content': f'Solve the numerical expression {true_expression}. The output must be in the format <numerical expression>=<solution>. DO NOT give me any other output.',
-            }
-        ]
-    )
-    end2 = time.time()
+    # start2 = time.time()
+    # true_expression = true_expression.replace('%', '/') # replace for nicer reading format by the LLM
+    # res2 = ollama.chat(
+    #     model=model_str,
+    #     messages=[
+    #         {
+    #             'role': 'user',
+    #             'content': f'Solve the numerical expression {true_expression}. The output must be in the format <numerical expression>=<solution>. DO NOT give me any other output.',
+    #         }
+    #     ]
+    # )
+    # end2 = time.time()
 
-    return res['message']['content'], end - start, res2['message']['content'], end2 - start2
+    # return res['message']['content'], end - start, res2['message']['content'], end2 - start2
+    return res['message']['content'], end - start
 
 
 def vlm_sequence(model_str, sample_fp):
@@ -178,7 +179,7 @@ def vlm_sequence(model_str, sample_fp):
         You will be provided a sequence of input images. Contained in each image will be
         either a digit (0-9) or an operator (+, -, /, *). Read these together to make an
         arithmetic expression. You need to solve these left to right, i.e. keep a running
-        of the value as you read in each image to make valid arithmetic expressions. For
+        total of the value as you read in each image to make valid arithmetic expressions. For
         example, given a sequence of images like ['5', '+', '1', '*', '2], you would first
         read the valid expression '5+1' and evaluate it to 6. Then, you would read the
         next operator and operand to get the valid expression '6*2', which is evaluated
@@ -233,9 +234,12 @@ def get_vlm_output(model_str):
         if sample_num < 99:
             continue
         with open(results_fp, 'a') as f:
-            res, time_taken, res2, time_taken2 = vlm(model_str, sample_fp, true_expression)
-            print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}, {res2}: {time_taken2}')
-            f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}, {res2}: {time_taken2}\n')
+            # res, time_taken, res2, time_taken2 = vlm(model_str, sample_fp, true_expression)
+            res, time_taken = vlm(model_str, sample_fp, true_expression)
+            # print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}, {res2}: {time_taken2}')
+            # f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}, {res2}: {time_taken2}\n')
+            print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}')
+            f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}\n')
 
 
 def get_vlm_output_long_expression(model_str, num_operands):
@@ -279,35 +283,37 @@ if __name__=="__main__":
     # models = ['llava:7b', 'moondream', 'bakllava']
     # models = ['bakllava']
 
-    # for num_operands in range(6, 9):
-    #         get_vlm_output_long_expression('llava-llama3', num_operands)
+    # model = 'llava-llama3'
+    for num_operands in range(3, 6):
+        get_vlm_output_long_expression('llava-llama3', num_operands)
+    for num_operands in range(6, 9):
+            get_vlm_output_long_expression('llava-llama3', num_operands)
+    for num_operands in range(9, 11):
+        get_vlm_output_long_expression('llava-llama3', num_operands)
 
-    # for num_operands in range(9, 11):
-    #     get_vlm_output_long_expression('llava-llama3', num_operands)
+    model = 'llava:7b'
+    for num_operands in range(3, 6):
+        get_vlm_output_long_expression('llava:7b', num_operands)
+    for num_operands in range(6, 9):
+        get_vlm_output_long_expression('llava:7b', num_operands)
+    for num_operands in range(9, 11):
+        get_vlm_output_long_expression('llava:7b', num_operands)
 
-    # model = 'llava:7b'
-    # for num_operands in range(3, 6):
-    #     get_vlm_output_long_expression('llava:7b', num_operands)
-    # for num_operands in range(6, 9):
-    #     get_vlm_output_long_expression('llava:7b', num_operands)
-    # for num_operands in range(9, 11):
-        # get_vlm_output_long_expression('llava:7b', num_operands)
+    model = 'bakllava'
+    for num_operands in range(3, 6):
+        get_vlm_output_long_expression('bakllava', num_operands)
+    for num_operands in range(6, 9):
+        get_vlm_output_long_expression('bakllava', num_operands)
+    for num_operands in range(9, 11):
+        get_vlm_output_long_expression('bakllava', num_operands)
 
-    # model = 'bakllava'
-    # for num_operands in range(3, 6):
-    #     get_vlm_output_long_expression('bakllava', num_operands)
-    # for num_operands in range(6, 9):
-    #     get_vlm_output_long_expression('bakllava', num_operands)
-    # for num_operands in range(9, 11):
-    #     get_vlm_output_long_expression('bakllava', num_operands)
-
-    # model = 'moondream'
-    # for num_operands in range(3, 6):
-    #     get_vlm_output_long_expression('moondream', num_operands)
-    # for num_operands in range(6, 9):
-    #     get_vlm_output_long_expression('moondream', num_operands)
-    # for num_operands in range(9, 11):
-        # get_vlm_output_long_expression('moondream', num_operands)
+    model = 'moondream'
+    for num_operands in range(3, 6):
+        get_vlm_output_long_expression('moondream', num_operands)
+    for num_operands in range(6, 9):
+        get_vlm_output_long_expression('moondream', num_operands)
+    for num_operands in range(9, 11):
+        get_vlm_output_long_expression('moondream', num_operands)
 
 
     # for model in models:
@@ -320,7 +326,9 @@ if __name__=="__main__":
     #     for num_operands in range(9, 11):
     #         get_vlm_output_long_expression(model, num_operands)
 
-    for num_operands in range(2, 11):
-        get_na_output(100, num_operands=num_operands)
+
+
+    # for num_operands in range(2, 11):
+    #     get_na_output(100, num_operands=num_operands)
 
     # get_na_output(100, num_operands=2)

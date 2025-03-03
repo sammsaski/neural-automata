@@ -1,0 +1,20 @@
+#0 -> sh=accept | 
+ [accept, accept] : 1.4096298217773438 |  : 0.04475283622741699
+#1 -> tg=accept | 
+ [accept, accept, accept] : 1.4587600231170654 |  : 0.046237945556640625
+#2 -> td=accept | 
+ [accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept] : 1.656362771987915 |  : 0.0454251766204834
+#3 -> sk=accept | 
+ [accept, accept] : 1.4266719818115234 |  : 0.04461216926574707
+#4 -> ql=accept | 
+ [accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept] : 1.5638470649719238 |  : 0.04466104507446289
+#5 -> rbx=reject | 
+ [accept, accept, accept] : 1.474816083908081 |  : 0.045625925064086914
+#6 -> xxjfudrbcy=reject | 
+ [accept, accept] : 1.4296119213104248 |  : 0.04522395133972168
+#7 -> nmkc=reject | 
+ [ 'n', 'm', 'c' ] : 1.4938087463378906 |  : 0.04566502571105957
+#8 -> lxx=reject |  : 1.4152820110321045 |  : 0.04669690132141113
+#9 -> zwbitevid=reject | 
+ [0.17, 0.13, 0.83, 0.87] : 1.5336487293243408 | 
+ Accept : 0.05910801887512207

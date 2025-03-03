@@ -1,0 +1,10 @@
+#0 -> hcj=accept | jcm,accept : 8.251507997512817
+#1 -> hct=accept | aegt. : 8.1140878200531
+#2 -> hcp=accept | t, e, h, c, e-, w : 8.35720181465149
+#3 -> hce=accept | eCtce, accept : 8.210461139678955
+#4 -> hcj=accept | JcEw : 8.333989143371582
+#5 -> izcx=reject | c, a, s, t, r, e, w : 11.041249990463257
+#6 -> iqhzrffdyq=reject | tqewert, accept : 19.114887952804565
+#7 -> rxnbj=reject | hccdfgefm -w : 13.67658281326294
+#8 -> l=reject | A B C D E F G H C L M N O P Q R S T U V W X Y Z A B C D E F G H C L M N O P Q R S T U V W X Y Z A B C D E F G H C L M N O P Q R S T U V W X Y Z : 5.88139533996582
+#9 -> vzqce=reject | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, accept : 15.828070878982544

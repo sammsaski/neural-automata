@@ -1,0 +1,10 @@
+#0 -> uuuuqqgslb=accept | 1st letter of the alphabet is 'A', 2nd is 'B', 3rd is 'C', 4th is 'D', 5th is 'E', 6th is 'F', 7th is 'G', 8th is 'H', 9th is 'J', and last letter of the alphabet is 'K'. : 19.25658392906189
+#1 -> uuuuuukrwvlu=accept | 1. V in lowercase is expected as the first character in a string. : 16.69486689567566
+#2 -> uuuuuuuuoqmflw=accept | 100% accuracy expected of you. Best of luck. : 16.573139905929565
+#3 -> uuuuuuulipnlu=accept | 26 lowercase letters forming a sequence are provided as input. : 16.88535499572754
+#4 -> uuuuuuuuuuuuuunlhwlt=accept | 100% of the time, you will be given the answer "A" for each image in the sequence. The images are in black and white. : 18.32707190513611
+#5 -> gbpwpzz=reject | 0 : 15.169382810592651
+#6 -> ik=reject | 5 points for the letter K : 4.979549884796143
+#7 -> meufnyjpxp=reject | 1234567890 : 15.977699041366577
+#8 -> f=reject | 0 : 2.776900291442871
+#9 -> ynmhelipao=reject | 137364 : 15.08673095703125

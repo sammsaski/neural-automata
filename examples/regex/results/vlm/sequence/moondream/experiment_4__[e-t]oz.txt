@@ -1,0 +1,19 @@
+#0 -> koz=accept | 
+ [accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept] : 4.342890977859497
+#1 -> hoz=accept | 
+ [0.23, 0.63, 0.78, 0.82] : 4.305983066558838
+#2 -> joz=accept | 
+ [accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept] : 4.387347936630249
+#3 -> toz=accept | 
+ [accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept] : 4.308866024017334
+#4 -> ooz=accept | 
+ [0.23, 0.62, 0.78, 0.82] : 4.165156841278076
+#5 -> arfgbihg=reject | 
+ [accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept] : 8.96649432182312
+#6 -> uchsksvsn=reject |  : 9.312050819396973
+#7 -> zuiy=reject | 
+ [accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept] : 5.189865827560425
+#8 -> dtv=reject | 
+ [0.23, 0.62, 0.78, 0.82] : 4.314531087875366
+#9 -> rqh=reject | 
+ [accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept, accept] : 4.406872749328613

@@ -1,0 +1,10 @@
+#0 -> lesrbbbbyuuuuuu=accept |  : 14.719348192214966
+#1 -> leeeeeeeeesdbbbz=accept |  : 15.439426183700562
+#2 -> leeesabbbbbbbbbyuu=accept |  : 17.141510009765625
+#3 -> lesnbbbbbbbbbyuuuu=accept |  : 17.306748151779175
+#4 -> leeeeeesobbbbbyuuu=accept |  : 17.895076990127563
+#5 -> kehppl=reject |  : 6.671615839004517
+#6 -> komybq=reject |  : 6.680873870849609
+#7 -> jf=reject |  : 2.854994058609009
+#8 -> fkbgk=reject |  : 5.7769551277160645
+#9 -> haftt=reject |  : 5.898355960845947

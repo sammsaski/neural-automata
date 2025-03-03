@@ -1,0 +1,10 @@
+#0 -> amlxvcf=accept | aixvcm : 3.0635979175567627 | AIXVCP : 0.3320910930633545
+#1 -> fmlfhcf=accept | Acfmifc : 3.0418851375579834 | Please provide a regular expression for me to test against, so that I can give you the appropriate accept/reject decision based on whether the string matches the regex or not. : 1.323503017425537
+#2 -> amliycf=accept | Amltc : 3.037834882736206 | "accept" : 0.29864025115966797
+#3 -> bmlxpcf=accept | BmXpC : 3.1121768951416016 | accept : 0.26067209243774414
+#4 -> fmldecf=accept | [mfmfmiemfeeeccf, accept] : 3.2364118099212646 | accept : 0.2916121482849121
+#5 -> oue=reject | a e o u e : 2.88474178314209 | Please provide a string, and I will let you know whether it accepts or rejects your input according to the regular expression provided. The regular expression is "accept" for all strings. : 1.3726160526275635
+#6 -> dzm=reject | a-bml-zd-a-fm-l-d-cf, accept : 3.421265125274658 | accept : 0.3189418315887451
+#7 -> cp=reject | [c, g, s], reject : 3.0782599449157715 | Accept : 0.30727314949035645
+#8 -> pefb=reject | aerbf : 2.9417479038238525 | The regular expression \[PEPB\] will match the strings "PFPB", "EPFB", and "PEPB". The regex \[PEPB\] matches the string "PEPB" exactly, since it doesn't contain any character classes or anchors. So, the answer should be "accept". : 2.334625005722046
+#9 -> yahpc=reject | [ahp, a, y, c]accept : 3.4243502616882324 | accept : 0.28516292572021484

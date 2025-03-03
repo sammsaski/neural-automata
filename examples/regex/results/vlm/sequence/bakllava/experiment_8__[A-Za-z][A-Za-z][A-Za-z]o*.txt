@@ -1,0 +1,10 @@
+#0 -> mobooooooooooooo=accept | 3 circles are given as input images. : 16.41935896873474
+#1 -> clcoooooooooooo=accept | 1st image: o : 15.986554145812988
+#2 -> cwroooo=accept | 0 : 14.874384880065918
+#3 -> fqbooooooooooooooo=accept | 1000 : 16.76591920852661
+#4 -> abpoooooooooooo=accept | 0 : 15.89148211479187
+#5 -> sidzhgexh=reject | 1375 : 14.83623719215393
+#6 -> kmfl=reject | 4 images of a white lowercase letter with a black background, that's all there is. : 9.488726615905762
+#7 -> ckarbct=reject | 20, 41, 61, 81, 100 and 1200 are the only acceptable input images. : 16.253556966781616
+#8 -> udltatzzi=reject | 16-bit black and white image with a dotted "i" as the central point of interest. : 15.891731262207031
+#9 -> xizrsvfz=reject | 26 classes with regular expression [A-Za-z]o* and output format [ pred predicted string, accept/reject ] : 15.867641687393188

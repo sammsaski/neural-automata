@@ -1,0 +1,10 @@
+#0 -> amlxvcf=accept | 26 classes is a quite large input space, but as an AI visualiser I am limited in what I can see and must rely on your descriptions to understand the problem fully. : 15.989250898361206
+#1 -> fmlfhcf=accept | 0.38, 0.57, 0.64, 0.79] : 15.636198043823242
+#2 -> amliycf=accept | 100% of image is black. The letters are white. : 15.46857500076294
+#3 -> bmlxpcf=accept | 26 classes. : 15.134319067001343
+#4 -> fmldecf=accept | 1. a-f. : 15.262328863143921
+#5 -> oue=reject | 0 : 6.898224115371704
+#6 -> dzm=reject | 26 classes of images are provided to you, starting with the letter "a". Predict the letters one by one and follow the format [a-f]ml[d-z][A-Za-z]cf. Remember that only lowercase letters are allowed. : 8.210165023803711
+#7 -> cp=reject | 26 classes of images will be given to you as a sequence. The regular expression is [a-f]ml[d-z][A-Za-z]cf. : 5.4785802364349365
+#8 -> pefb=reject | 0 : 9.496400833129883
+#9 -> yahpc=reject | 1. a is the first letter in the sequence, and 2. b is the second one. : 11.585134267807007

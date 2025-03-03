@@ -1,0 +1,11 @@
+#4 -> timeout
+#0 -> sh=accept | 0 : 4.526993036270142
+#1 -> tg=accept | 6 letter of the english alphabet in gray with black background. : 5.007265090942383
+#2 -> td=accept | 0 : 4.436986207962036
+#3 -> sk=accept | 26 classes of letters is too many to fit into a single image, so we'll break this down into smaller sets of images that each represent a specific letter. For example, the first image could show an "a", and the second one could show a "b". This will help us understand your ability to identify different letters in a sequence provided to you. : 6.521530866622925
+#4 -> ql=accept | 0 : 4.590514183044434
+#5 -> rbx=reject | 26 classes of letters that you will see in the images. : 6.826068878173828
+#6 -> xxjfudrbcy=reject | 42,136,109,25,73,16,57,19,34,86,24,46,12,54,21,14,64,11,45,18,11,82,15,61,28,15,55,14,72,19,13,85,27,11,57,17,59,13,86,26,15,61,21,11,45,19,13,86,27,15,57,17,59,13,86,26,15,57,17,59,13,86,27,15,57,17,59,13,86,26,15,57,17,59,13,86,27,15,57,17,59,13,86,26,15,57,17,59,13,86,27,15,57,17,59,13,86,26,15,57,17,59,13,86,27,15,57,0 : 26.364523887634277
+#7 -> nmkc=reject | 1st letter: a : 9.578397035598755
+#8 -> lxx=reject | 0 : 6.333677053451538
+#9 -> zwbitevid=reject | 16-bit twod image with black and white dudley defined as 0. : 15.58207082748413

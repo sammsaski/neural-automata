@@ -1,0 +1,10 @@
+#0 -> hperhh=accept | 26 images are given to you, and each image represents a different letter of the English alphabet in lowercase. Your task is to predict the correct order of these letters as they appear in the English alphabet. Your final string must be accepted by the regular expression provided. This problem is designed to be difficult, so good luck with your predictions. : 15.993103981018066
+#1 -> hserkj=accept | 26 images of a letter of the English alphabet, forming a predicted string. : 14.644734859466553
+#2 -> hterog=accept | 26 letters of the English alphabet : 13.399042129516602
+#3 -> hserfk=accept | 26 classes in English alphabet. This will be given as a sequence of input images. : 14.022674798965454
+#4 -> hterij=accept | 11-bit input image is a black square of 5x5. : 13.880992889404297
+#5 -> rykeaec=reject | 1. a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p : 16.72606062889099
+#6 -> fjljdjxd=reject | 0 : 15.964625120162964
+#7 -> h=reject | 26 classes of images are given to you one at a time in a sequence. Your task is to predict each image as a lowercase letter of the English alphabet and join all your predictions together into a string. The regular expression that dictates what should be accepted is h[p-u]er[A-Za-z]. When you make a prediction, tell me "accept" if it matches the reg exp, or "reject" if not. The correct string to be predicted is x. : 5.439144134521484
+#8 -> rgvrruvg=reject | 26 lowercase letters : 15.641679048538208
+#9 -> vuyosf=reject | 100% of the time, predict whether an input string should be accepted or rejected. : 13.731158018112183

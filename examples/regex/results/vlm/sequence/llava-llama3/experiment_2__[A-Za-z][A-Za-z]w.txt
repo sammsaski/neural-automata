@@ -1,0 +1,10 @@
+#0 -> quw=accept | wzwz, accept : 8.50088119506836
+#1 -> liw=accept | a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,a-9,0,7,8,9, 1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9, 1234567890,accept. : 15.437355995178223
+#2 -> fjw=accept | zwyjmwjmwjmwjmwjmwjmwww, accept : 8.838008880615234
+#3 -> qkw=accept | w w w : 8.097965955734253
+#4 -> tsw=accept | wvwwvwwwww, accept : 8.5677011013031
+#5 -> iyyaswuc=reject | Wwwzttw. : 19.051193952560425
+#6 -> f=reject | a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,accept : 4.357990264892578
+#7 -> fhllfaqs=reject | Ssrrcgtw, reject : 20.38017702102661
+#8 -> rge=reject | e, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z. accept : 11.035882949829102
+#9 -> dvlriwjjbr=reject | w : 19.936642169952393

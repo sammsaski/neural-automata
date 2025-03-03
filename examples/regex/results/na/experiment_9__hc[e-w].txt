@@ -1,0 +1,11 @@
+#0 -> hcj=accept | hcj=accept
+#1 -> hct=accept | mct=reject
+#2 -> hcp=accept | hcp=accept
+#3 -> hce=accept | hce=accept
+#4 -> hcj=accept | hcj=accept
+#5 -> izcx=reject | izcx=reject
+#6 -> iqhzrffdyq=reject | lqhzrffdyq=reject
+#7 -> rxnbj=reject | rxnbj=reject
+#8 -> l=reject | l=reject
+#9 -> vzqce=reject | vzgce=reject
+String Classification Accuracy: 70.0%, Task Accuracy: 90.0%
