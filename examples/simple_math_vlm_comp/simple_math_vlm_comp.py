@@ -5,6 +5,7 @@ import os
 import random
 import sys
 import time
+import signal
 
 # third-party
 import torch
@@ -27,11 +28,21 @@ from examples.simple_math.networks.modeswitch import ModeSwitchCNN
 from scripts.stitch_images import generate_expressions, create_expression
 
 from examples.simple_math_vlm_comp.setup_experiment import evaluate_expression
+from examples.simple_math_vlm_comp.networks.cnn import CNN
 
 DIGIT_CHOICES = [str(i) for i in range(10)]
 OPERATOR_CHOICES = ['+', '-', '%', '*']
-OP_MAP = {0: '%', 1: '*', 2: '+', 3: '-'}
+# OP_MAP = {0: '%', 1: '*', 2: '+', 3: '-'}
+# OP_MAP = {10: '%', 11: '*', 12: '+', 13: '-'}
+OP_MAP = {10: '+', 11: '-', 12: '*', 13: '%'}
 OPS = {'+': operator.add, '-': operator.sub, '*': operator.mul, '%': operator.truediv}
+
+
+def alarm_handler(signum, frame):
+    raise TimeoutError("Operation timed out")
+
+signal.signal(signal.SIGALRM, alarm_handler)
+
 
 # TODO: Rename to neurosymbolic_automaton
 def neural_automaton(arithmetic_expression):
@@ -89,10 +100,52 @@ def neural_automaton(arithmetic_expression):
 
     return res, end - start
 
+
+def neural_automaton2(arithmetic_expression):
+    """
+    Given an arithmetic expression (as a list of images describing it), return the output of the arithmetic expression
+    described by the operands and operators.
+    """
+    base_fp = os.path.join(os.getcwd(), 'examples', 'simple_math_vlm_comp')
+
+    # load the models
+    model_fp = os.path.join(base_fp, 'models', 'torch', 'HDO.pth')
+    
+    # Mode Switch Model
+    nn = CNN()
+    nn.load_state_dict(torch.load(model_fp))
+
+    predicted_expression = []
+
+    start = time.time()
+
+    # use the automaton to predict the arithmetic expression
+    for element in arithmetic_expression:
+        logits = nn(element)
+        pred = torch.argmax(logits)
+
+        # operator
+        if pred > 9:
+            pred = OP_MAP[pred.item()]
+        else:
+            pred = str(int(pred))
+
+        predicted_expression.append(pred)
+
+    # solve the expression
+    res = evaluate_expression(predicted_expression)
+
+    end = time.time()
+
+    return res, end - start
+
+
+
 def get_na_output(num_samples, num_operands):
     data_fp = 'examples/simple_math_vlm_comp/data'
     na_fp = os.path.join(data_fp, 'na', str(num_operands))
-    results_fp = os.path.join('examples/simple_math_vlm_comp/results/na', str(num_operands))
+    # results_fp = os.path.join('examples/simple_math_vlm_comp/results/na', str(num_operands))
+    results_fp = os.path.join('examples/simple_math_vlm_comp/results/na2', str(num_operands))
     labels_fp = os.path.join(data_fp, f'{num_operands}_labels.txt')
 
     # create directory
@@ -114,10 +167,12 @@ def get_na_output(num_samples, num_operands):
         # read the images and construct the sample list of images
         sample_data = np.load(sample_fp)
         arithmetic_expression = [torch.from_numpy(sample_data[i]).unsqueeze(0).float() for i in range(sample_data.shape[0])]
-        res, time_taken = neural_automaton(arithmetic_expression)
+        # res, time_taken = neural_automaton(arithmetic_expression)
+        res, time_taken = neural_automaton2(arithmetic_expression)
 
         with open(results_file, 'a+') as f:
-            res, time_taken = neural_automaton(arithmetic_expression)
+            # res, time_taken = neural_automaton(arithmetic_expression)
+            res, time_taken = neural_automaton2(arithmetic_expression)
             print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}')
             f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}\n')
 
@@ -257,7 +312,9 @@ def get_vlm_output_long_expression(model_str, num_operands):
     samples = []
 
     with open(labels_fp, 'r') as f:
-        for sample in os.listdir(vlm_sequence_fp):
+        all_sample_fps = os.listdir(vlm_sequence_fp)
+        all_sample_fps.sort()
+        for sample in all_sample_fps:
             sample_fp = os.path.join(vlm_sequence_fp, sample) # /path/to/vlm/sequence/{num_operands}/sample_0
             line = f.readline()
             samples.append([sample_fp] + [sample.strip() for sample in line.split(',')])
@@ -265,12 +322,18 @@ def get_vlm_output_long_expression(model_str, num_operands):
     results_file = os.path.join(results_fp, f'results_{model_str}.txt')
 
     for sample_num, (sample_fp, true_expression, true_solution) in enumerate(samples):
-        if sample_num < 15 or sample_num > 25: # samples 15-25 to get more
+        if sample_num > 24: # samples 15-25 to get more
             continue
         with open(results_file, 'a') as f:
-            res, time_taken = vlm_sequence(model_str, sample_fp)
-            print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}')
-            f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}\n')
+            try:
+                signal.alarm(180)
+                res, time_taken = vlm_sequence(model_str, sample_fp)
+                signal.alarm(0)
+                print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}')
+                f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}\n')
+            except TimeoutError as e:
+                print(f'#{sample_num} -> {true_expression}={true_solution} | timeout')
+                f.write(f'#{sample_num} -> {true_expression}={true_solution} | timeout: {180}\n')
 
 
 if __name__=="__main__":
@@ -284,36 +347,36 @@ if __name__=="__main__":
     # models = ['bakllava']
 
     # model = 'llava-llama3'
-    for num_operands in range(3, 6):
-        get_vlm_output_long_expression('llava-llama3', num_operands)
-    for num_operands in range(6, 9):
-            get_vlm_output_long_expression('llava-llama3', num_operands)
-    for num_operands in range(9, 11):
-        get_vlm_output_long_expression('llava-llama3', num_operands)
+    # for num_operands in range(3, 6):
+    #     get_vlm_output_long_expression('llava-llama3', num_operands)
+    # for num_operands in range(6, 9):
+    #         get_vlm_output_long_expression('llava-llama3', num_operands)
+    # for num_operands in range(9, 11):
+    #     get_vlm_output_long_expression('llava-llama3', num_operands)
 
-    model = 'llava:7b'
-    for num_operands in range(3, 6):
-        get_vlm_output_long_expression('llava:7b', num_operands)
-    for num_operands in range(6, 9):
-        get_vlm_output_long_expression('llava:7b', num_operands)
-    for num_operands in range(9, 11):
-        get_vlm_output_long_expression('llava:7b', num_operands)
+    # model = 'llava:7b'
+    # for num_operands in range(3, 6):
+    #     get_vlm_output_long_expression('llava:7b', num_operands)
+    # for num_operands in range(6, 9):
+    #     get_vlm_output_long_expression('llava:7b', num_operands)
+    # for num_operands in range(9, 11):
+    #     get_vlm_output_long_expression('llava:7b', num_operands)
 
-    model = 'bakllava'
-    for num_operands in range(3, 6):
-        get_vlm_output_long_expression('bakllava', num_operands)
-    for num_operands in range(6, 9):
-        get_vlm_output_long_expression('bakllava', num_operands)
-    for num_operands in range(9, 11):
-        get_vlm_output_long_expression('bakllava', num_operands)
+    # model = 'bakllava'
+    # for num_operands in range(3, 6):
+    #     get_vlm_output_long_expression('bakllava', num_operands)
+    # for num_operands in range(6, 9):
+    #     get_vlm_output_long_expression('bakllava', num_operands)
+    # for num_operands in range(9, 11):
+    #     get_vlm_output_long_expression('bakllava', num_operands)
 
-    model = 'moondream'
-    for num_operands in range(3, 6):
-        get_vlm_output_long_expression('moondream', num_operands)
-    for num_operands in range(6, 9):
-        get_vlm_output_long_expression('moondream', num_operands)
-    for num_operands in range(9, 11):
-        get_vlm_output_long_expression('moondream', num_operands)
+    # model = 'moondream'
+    # for num_operands in range(3, 6):
+    #     get_vlm_output_long_expression('moondream', num_operands)
+    # for num_operands in range(6, 9):
+    #     get_vlm_output_long_expression('moondream', num_operands)
+    # for num_operands in range(9, 11):
+    #     get_vlm_output_long_expression('moondream', num_operands)
 
 
     # for model in models:
@@ -328,7 +391,7 @@ if __name__=="__main__":
 
 
 
-    # for num_operands in range(2, 11):
-    #     get_na_output(100, num_operands=num_operands)
+    for num_operands in range(2, 11):
+        get_na_output(100, num_operands=num_operands)
 
     # get_na_output(100, num_operands=2)

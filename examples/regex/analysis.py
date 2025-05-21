@@ -82,6 +82,57 @@ def analyze_vlm_results():
                 parsed_items, accuracy, avg_runtime = parse_vlm_results(os.path.join(model_fp, exp_fp))
                 print(f'Experiment #{i} | Task Accuracy: {accuracy}%, Avg. Running Time: {avg_runtime}')
 
+def parse_vlm_results_runtimes(filepath):
+    """
+    Parse the output results files for the VLMs.
+    """
+    running_time = 0
+    total = 0
+
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    entries = re.split(r'#(\d+) -> ', content)
+    
+    parsed_data = {}
+    for i in range(1, len(entries), 2):
+        key = int(entries[i])
+        value = entries[i+1].strip()
+
+        # parse the value some more to break it up into: true expression,
+        # true value, VLM output
+        if value == "timeout":
+            running_time += 300.0
+            total += 1
+            continue
+
+        # true_sample, vlm_output = value.split(" | ")
+        # true_expression, true_value = true_sample.split("=")
+        # vlm_runtime = vlm_output.split(": ")[-1]
+        vlm_runtime = value.split( ": ")[-1]
+        running_time += float(vlm_runtime)
+        total += 1
+
+        # parsed_data[key] = [true_expression, true_value, vlm_output]
+    
+    return running_time / total
+
+
+
+def analyze_vlm_results_runtime():
+    results_fp = 'examples/regex/results/vlm/sequence'
+    models = ['llava-llama3', 'llava:7b', 'moondream', 'bakllava']
+
+    for model in models:
+        model_fp = os.path.join(results_fp, model)
+        experiments = os.listdir(model_fp)
+        experiments.sort()
+        for i, exp_fp in enumerate(experiments):
+            with open(os.path.join(model_fp, exp_fp), 'r') as f:
+                avg_runtime = parse_vlm_results_runtimes(os.path.join(model_fp, exp_fp))
+                print(f'({model}) Experiment #{i} | Avg. Running Time: {avg_runtime}')
+
+
 
 # def analyze_vlm_results():
 #     results_fp = 'examples/regex/results/vlm/sequence'
@@ -118,4 +169,6 @@ def analyze_vlm_results():
 #                 print(f'Experiment #{i} | Task Accuracy: {round((correct / total) * 100, 1)}%, Avg. Running Time: {total_time_taken / total}')
 
             
-analyze_vlm_results()
+# analyze_vlm_results()
+
+analyze_vlm_results_runtime()
