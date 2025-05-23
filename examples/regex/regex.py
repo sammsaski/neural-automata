@@ -42,6 +42,9 @@ def neurosymbolic_automaton(input_str, regex):
 
     # predict the input string
     predicted_str_lst = []
+
+    start = time.time()
+
     for i in range(images.shape[0]):
         image = images[i]
         outputs = model(image)
@@ -55,7 +58,9 @@ def neurosymbolic_automaton(input_str, regex):
     # check if the string matches the regex
     accept = matches_regex(regex, predicted_str)
 
-    return predicted_str, accept
+    end = time.time()
+
+    return predicted_str, accept, end - start
 
 
 def vlm(model_str, input_str, regex):
@@ -141,9 +146,9 @@ def get_na_output():
                     #     continue
                     true_string, accept = label_line.split(",")
                     accept = bool(int(accept)) # convert from str -> bool
-                    na_predicted_str, na_accept = neurosymbolic_automaton(full_sample_fp, regex)
-                    print(f'#{sample_num} -> {true_string}={"accept" if accept else "reject"} | {na_predicted_str}={"accept" if na_accept else "reject"}')
-                    r.write(f'#{sample_num} -> {true_string}={"accept" if accept else "reject"} | {na_predicted_str}={"accept" if na_accept else "reject"}\n')
+                    na_predicted_str, na_accept, t = neurosymbolic_automaton(full_sample_fp, regex)
+                    print(f'#{sample_num} -> {true_string}={"accept" if accept else "reject"} | {na_predicted_str}={"accept" if na_accept else "reject"}: {t}')
+                    r.write(f'#{sample_num} -> {true_string}={"accept" if accept else "reject"} | {na_predicted_str}={"accept" if na_accept else "reject"}: {t}\n')
 
                     if true_string == na_predicted_str:
                         num_str_correct += 1
@@ -324,8 +329,8 @@ def get_vlm_output2():
 
 
 if __name__=="__main__":
-    # get_na_output()
+    get_na_output()
 
     # get_vlm_output()
 
-    get_vlm_output_sequence()
+    # get_vlm_output_sequence()
