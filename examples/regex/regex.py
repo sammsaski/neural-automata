@@ -5,11 +5,22 @@ import time
 # third-party packages
 import ollama
 import torch
+import signal
 
 # local packages
 from examples.regex.networks.letter_cnn import LetterCNN
 from examples.regex.setup_experiment import matches_regex
 
+# --- timeout handling
+TIMEOUT = 100
+
+def handler(signum, frame):
+    raise TimeoutError("Function timed out!")
+
+signal.signal(signal.SIGALRM, handler)
+signal.alarm(TIMEOUT)
+
+# ---
 
 def neurosymbolic_automaton(input_str, regex):
     """
@@ -261,6 +272,55 @@ def get_vlm_output_sequence():
                         # r.write(f'#{sample_num} -> {true_string}={"accept" if accept else "reject"} | {res1} : {time1} | {res2} : {time2}\n')
                         print(f'#{sample_num} -> {true_string}={"accept" if accept else "reject"} | {res1} : {time1}')
                         r.write(f'#{sample_num} -> {true_string}={"accept" if accept else "reject"} | {res1} : {time1}\n')
+
+
+def get_vlm_output2():
+    """Run all experiments with the VLMs."""
+    stitched_fp = os.path.join(os.getcwd(), 'examples', 'regex', 'data', 'vlm', 'stitched2')
+    models = ['llava-llama3', 'llava:7b', 'moondream', 'bakllava']
+
+    for experiment_name in os.listdir(stitched_fp):
+        print(f'working on {experiment_name.split("__")[0]}')
+        labels_fp = os.path.join(os.getcwd(), 'examples', 'regex', 'data', f'{experiment_name}.txt')
+        stitched_exp_fp = os.path.join(stitched_fp, experiment_name)
+
+        # get the regex from the experiment name
+        regex = experiment_name.split("__")[1]
+
+        with open(labels_fp, 'r') as labels:
+            # sort the samples
+            samples_fp = os.listdir(stitched_exp_fp)
+            samples_fp.sort(key=lambda x: int(x.split("_")[1]))
+
+            for model in models:
+                if not os.path.isdir(os.path.join('examples', 'regex', 'results', 'vlm', 'stitched', model)):
+                    os.mkdir(os.path.join('examples', 'regex', 'results', 'vlm', 'stitched2', model))
+                results_fp = os.path.join('examples', 'regex', 'results', 'vlm', 'stitched2', model, f'{experiment_name}.txt')
+                with open(results_fp, 'a+') as r:
+                    for sample_num, sample_fp in enumerate(samples_fp):
+                        full_sample_fp = os.path.join(stitched_exp_fp, sample_fp)
+                        label_line = labels.readline()
+                        if label_line == '':
+                            continue
+                        true_string, accept = label_line.split(",")
+                        accept = bool(int(accept)) # convert from str -> bool
+
+                        try:
+                            res1, time1, res2, time2 = vlm(model, full_sample_fp, regex)
+                        except TimeoutError:
+                            res1, time1 = "timeout", TIMEOUT
+                        finally:
+                            signal.alarm(0)
+                        
+                        
+                        
+                        print(f'#{sample_num} -> {true_string}={"accept" if accept else "reject"} | {res1} : {time1} | {res2} : {time2}')
+                        r.write(f'#{sample_num} -> {true_string}={"accept" if accept else "reject"} | {res1} : {time1} | {res2} : {time2}\n')
+
+
+
+
+
 
 
 if __name__=="__main__":

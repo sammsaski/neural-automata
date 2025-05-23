@@ -37,8 +37,11 @@ OPERATOR_CHOICES = ['+', '-', '%', '*']
 OP_MAP = {10: '+', 11: '-', 12: '*', 13: '%'}
 OPS = {'+': operator.add, '-': operator.sub, '*': operator.mul, '%': operator.truediv}
 
+timed_out = False
 
 def alarm_handler(signum, frame):
+    global timed_out
+    timed_out = True
     raise TimeoutError("Operation timed out")
 
 signal.signal(signal.SIGALRM, alarm_handler)
@@ -289,10 +292,7 @@ def get_vlm_output(model_str):
         if sample_num < 99:
             continue
         with open(results_fp, 'a') as f:
-            # res, time_taken, res2, time_taken2 = vlm(model_str, sample_fp, true_expression)
             res, time_taken = vlm(model_str, sample_fp, true_expression)
-            # print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}, {res2}: {time_taken2}')
-            # f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}, {res2}: {time_taken2}\n')
             print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}')
             f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}\n')
 
@@ -324,16 +324,45 @@ def get_vlm_output_long_expression(model_str, num_operands):
     for sample_num, (sample_fp, true_expression, true_solution) in enumerate(samples):
         if sample_num > 24: # samples 15-25 to get more
             continue
+
+        global timed_out
+        timed_out = False  # Reset flag at start of each sample
+
+        signal.alarm(180)
+        try:
+            res, time_taken = vlm_sequence(model_str, sample_fp)
+        except TimeoutError:
+            signal.alarm(0)
+            with open(results_file, 'a') as f:
+                print(f'#{sample_num} -> {true_expression}={true_solution} | timeout')
+                f.write(f'#{sample_num} -> {true_expression}={true_solution} | timeout: 180\n')
+            continue
+        except Exception as e:
+            signal.alarm(0)
+            with open(results_file, 'a') as f:
+                print(f'#{sample_num} -> {true_expression}={true_solution} | error: {e}')
+                f.write(f'#{sample_num} -> {true_expression}={true_solution} | error: {e}\n')
+            continue
+        signal.alarm(0)
+
         with open(results_file, 'a') as f:
-            try:
-                signal.alarm(180)
-                res, time_taken = vlm_sequence(model_str, sample_fp)
-                signal.alarm(0)
+            if timed_out:
+                print(f'#{sample_num} -> {true_expression}={true_solution} | timeout')
+                f.write(f'#{sample_num} -> {true_expression}={true_solution} | timeout: 180\n')
+            else:
                 print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}')
                 f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}\n')
-            except TimeoutError as e:
-                print(f'#{sample_num} -> {true_expression}={true_solution} | timeout')
-                f.write(f'#{sample_num} -> {true_expression}={true_solution} | timeout: {180}\n')
+
+        # with open(results_file, 'a') as f:
+        #     try:
+        #         signal.alarm(180)
+        #         res, time_taken = vlm_sequence(model_str, sample_fp)
+        #         signal.alarm(0)
+        #         print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}')
+        #         f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}\n')
+        #     except TimeoutError as e:
+        #         print(f'#{sample_num} -> {true_expression}={true_solution} | timeout')
+        #         f.write(f'#{sample_num} -> {true_expression}={true_solution} | timeout: {180}\n')
 
 
 if __name__=="__main__":
@@ -343,6 +372,19 @@ if __name__=="__main__":
     # get_vlm_output('bakllava')
 
     # models = ['llava-llama3', 'llava:7b', 'moondream', 'bakllava']
+    # models = ['llava:7b', 'moondream', 'bakllava']
+    # models = ['bakllava']
+    models = ['llava-llama3']
+
+    for model in models:
+        # for num_operand in range(3, 11):
+        for num_operand in range(9, 11):
+            get_vlm_output_long_expression(model, num_operand)
+
+    # models = ['llava-llama3', 'llava:7b', 'moondream', 'bakllava']
+    # for model in models:
+    #     get_vlm_output_long_expression(model, 2)
+
     # models = ['llava:7b', 'moondream', 'bakllava']
     # models = ['bakllava']
 
@@ -390,8 +432,7 @@ if __name__=="__main__":
     #         get_vlm_output_long_expression(model, num_operands)
 
 
-
-    for num_operands in range(2, 11):
-        get_na_output(100, num_operands=num_operands)
+    # for num_operands in range(2, 11):
+    #     get_na_output(100, num_operands=num_operands)
 
     # get_na_output(100, num_operands=2)
