@@ -5,3 +5,5 @@ We propose a novel model of computation with neurosymbolic automata. Like classi
 # NeuS'25
 
 To reproduce the results in the NeuS'25 paper, see the `examples/regex` and `examples/simple_math_vlm_comp` folders. Each of these folders will contain the data, models, and scripts necessary to running the experiments.
+
+There is a push-button script in the `scripts` directory that will rerun the regex and arithmetic evaluation experiments which are examined in the paper. Note that, as it stands, the current code will append to the existing results files, so the results directories should be deleted and recreated in each experiment directory (e.g. `examples/regex/results` and `examples/simple_math_vlm_comp/results`) before running.
