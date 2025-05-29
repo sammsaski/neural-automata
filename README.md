@@ -1,43 +1,9 @@
-# Neural Automata
+# Neurosymbolic Automata
 
-We propose a novel model of computation with neural automata. Like classic automata, this model of computation contains a set of states and descriptions of the transitions between these states. Unlike classic automata, every transition of the system is described by a neural network.
+We propose a novel model of computation with neurosymbolic automata. Like classic automata, this model of computation contains a set of states and descriptions of the transitions between these states. Unlike classic automata, every transition of the system is described by a neural network.
 
-# Examples
-To run the `simple_math` example,
-- Ensure that the virtual environment is running
-- Then, from either the root directory or `scripts` directory, execute the following command
-```sh 
-bash /path/to/run_simple_math.sh
-```
+# NeuS'25
 
+To reproduce the results in the NeuS'25 paper, see the `examples/regex` and `examples/simple_math_vlm_comp` folders. Each of these folders will contain the data, models, and scripts necessary to running the experiments. The results shown in the paper are also represented in the `results` subdirectory of each.
 
-# Model
-Neutron
-- Modes
-  - Name
-  - Neural Network
-- Transitions
-  - Nodes
-  - Neural Network
- - States
-
-1. Maintain an active state
-    - state variables
-2. Be able to change modes
-    - neural controller
-3. Be able to update state
-    - state variables
-    - transitions
-
-# Automata
-The automata is comprised of a set of modes, a set of transitions, and a set of state variables. Additionally, the automata can take inputs and give outputs.
-
-# Mode
-A mode is a state variable of the automata that dictates which transitions can be taken. From specific modes, only certain transitions are defined. In the context of the automata, we turn these modes into a set and input them when constructing the automata.
-
-# Transition
-A transition is an action taken during one timestep of the automata. In this case, we assume that every timestep takes one transition of the automata. Again, we create a set of transitions and provide them as input when building the automata.
-
-# State
-The set of state variables to maintain during the lifetime of the automata.
-
+There is a push-button script in the `scripts` directory that will rerun the regex and arithmetic evaluation experiments which are examined in the paper. Note that, as it stands, the current code will append to the existing results files, so the results directories should be deleted and recreated in each experiment directory (e.g. `examples/regex/results` and `examples/simple_math_vlm_comp/results`) before running.

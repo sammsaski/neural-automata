@@ -32,8 +32,6 @@ from examples.simple_math_vlm_comp.networks.cnn import CNN
 
 DIGIT_CHOICES = [str(i) for i in range(10)]
 OPERATOR_CHOICES = ['+', '-', '%', '*']
-# OP_MAP = {0: '%', 1: '*', 2: '+', 3: '-'}
-# OP_MAP = {10: '%', 11: '*', 12: '+', 13: '-'}
 OP_MAP = {10: '+', 11: '-', 12: '*', 13: '%'}
 OPS = {'+': operator.add, '-': operator.sub, '*': operator.mul, '%': operator.truediv}
 
@@ -102,7 +100,6 @@ def neural_automaton(arithmetic_expression):
     end = time.time()
 
     return res, end - start
-
 
 def neural_automaton2(arithmetic_expression):
     """
@@ -205,21 +202,6 @@ def vlm(model_str, sample_fp, true_expression):
     )
     end = time.time()
 
-    # task 2 : evaluating the arithmetic expression
-    # start2 = time.time()
-    # true_expression = true_expression.replace('%', '/') # replace for nicer reading format by the LLM
-    # res2 = ollama.chat(
-    #     model=model_str,
-    #     messages=[
-    #         {
-    #             'role': 'user',
-    #             'content': f'Solve the numerical expression {true_expression}. The output must be in the format <numerical expression>=<solution>. DO NOT give me any other output.',
-    #         }
-    #     ]
-    # )
-    # end2 = time.time()
-
-    # return res['message']['content'], end - start, res2['message']['content'], end2 - start2
     return res['message']['content'], end - start
 
 
@@ -288,9 +270,6 @@ def get_vlm_output(model_str):
     results_fp = os.path.join(data_fp, f'results_{model_str}.txt')
 
     for sample_num, (sample_fp, true_expression, true_solution) in enumerate(samples):
-        # to skip to the 72nd sample on moondream
-        if sample_num < 99:
-            continue
         with open(results_fp, 'a') as f:
             res, time_taken = vlm(model_str, sample_fp, true_expression)
             print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}')
@@ -322,7 +301,7 @@ def get_vlm_output_long_expression(model_str, num_operands):
     results_file = os.path.join(results_fp, f'results_{model_str}.txt')
 
     for sample_num, (sample_fp, true_expression, true_solution) in enumerate(samples):
-        if sample_num > 24: # samples 15-25 to get more
+        if sample_num > 24:
             continue
 
         global timed_out
@@ -353,86 +332,18 @@ def get_vlm_output_long_expression(model_str, num_operands):
                 print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}')
                 f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}\n')
 
-        # with open(results_file, 'a') as f:
-        #     try:
-        #         signal.alarm(180)
-        #         res, time_taken = vlm_sequence(model_str, sample_fp)
-        #         signal.alarm(0)
-        #         print(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}')
-        #         f.write(f'#{sample_num} -> {true_expression}={true_solution} | {res}: {time_taken}\n')
-        #     except TimeoutError as e:
-        #         print(f'#{sample_num} -> {true_expression}={true_solution} | timeout')
-        #         f.write(f'#{sample_num} -> {true_expression}={true_solution} | timeout: {180}\n')
-
 
 if __name__=="__main__":
-    # get_vlm_output('llava-llama3')
-    # get_vlm_output('llava:7b') # stopped on sample 98
-    # get_vlm_output('moondream') # stopped on samples 70
-    # get_vlm_output('bakllava')
+    models = ['llava-llama3', 'llava:7b', 'moondream', 'bakllava']
 
-    # models = ['llava-llama3', 'llava:7b', 'moondream', 'bakllava']
-    # models = ['llava:7b', 'moondream', 'bakllava']
-    # models = ['bakllava']
-    models = ['llava-llama3']
+    # get vlm output
+    for model in models:
+        get_vlm_output(model)
 
     for model in models:
-        # for num_operand in range(3, 11):
-        for num_operand in range(9, 11):
+        for num_operand in range(3, 11):
             get_vlm_output_long_expression(model, num_operand)
 
-    # models = ['llava-llama3', 'llava:7b', 'moondream', 'bakllava']
-    # for model in models:
-    #     get_vlm_output_long_expression(model, 2)
-
-    # models = ['llava:7b', 'moondream', 'bakllava']
-    # models = ['bakllava']
-
-    # model = 'llava-llama3'
-    # for num_operands in range(3, 6):
-    #     get_vlm_output_long_expression('llava-llama3', num_operands)
-    # for num_operands in range(6, 9):
-    #         get_vlm_output_long_expression('llava-llama3', num_operands)
-    # for num_operands in range(9, 11):
-    #     get_vlm_output_long_expression('llava-llama3', num_operands)
-
-    # model = 'llava:7b'
-    # for num_operands in range(3, 6):
-    #     get_vlm_output_long_expression('llava:7b', num_operands)
-    # for num_operands in range(6, 9):
-    #     get_vlm_output_long_expression('llava:7b', num_operands)
-    # for num_operands in range(9, 11):
-    #     get_vlm_output_long_expression('llava:7b', num_operands)
-
-    # model = 'bakllava'
-    # for num_operands in range(3, 6):
-    #     get_vlm_output_long_expression('bakllava', num_operands)
-    # for num_operands in range(6, 9):
-    #     get_vlm_output_long_expression('bakllava', num_operands)
-    # for num_operands in range(9, 11):
-    #     get_vlm_output_long_expression('bakllava', num_operands)
-
-    # model = 'moondream'
-    # for num_operands in range(3, 6):
-    #     get_vlm_output_long_expression('moondream', num_operands)
-    # for num_operands in range(6, 9):
-    #     get_vlm_output_long_expression('moondream', num_operands)
-    # for num_operands in range(9, 11):
-    #     get_vlm_output_long_expression('moondream', num_operands)
-
-
-    # for model in models:
-    #     for num_operands in range(3, 11):
-    #         get_vlm_output_long_expression(model, num_operands)
-
-    #     for num_operands in range(6, 9):
-    #         get_vlm_output_long_expression(model, num_operands)
-
-    #     for num_operands in range(9, 11):
-    #         get_vlm_output_long_expression(model, num_operands)
-
-
-    # for num_operands in range(2, 11):
-    #     get_na_output(100, num_operands=num_operands)
-
-    # get_na_output(100, num_operands=2)
+    
+    for num_operands in range(2, 11):
+        get_na_output(100, num_operands=num_operands)

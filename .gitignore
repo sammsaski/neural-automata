@@ -5,8 +5,8 @@ __pycache__/
 
 data/*
 
-examples/simple_math_vlm_comp/data/na/*
-examples/simple_math_vlm_comp/data/vlm/*
+# examples/simple_math_vlm_comp/data/na/*
+# examples/simple_math_vlm_comp/data/vlm/*
 
-examples/regex/data/na/*
-examples/regex/data/vlm/*
+# examples/regex/data/na/*
+# examples/regex/data/vlm/*
