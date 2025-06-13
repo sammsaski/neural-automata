@@ -344,6 +344,5 @@ if __name__=="__main__":
         for num_operand in range(3, 11):
             get_vlm_output_long_expression(model, num_operand)
 
-    
     for num_operands in range(2, 11):
         get_na_output(100, num_operands=num_operands)
