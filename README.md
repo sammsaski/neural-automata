@@ -1,6 +1,6 @@
-# Neurosymbolic Automata
+# Neurosymbolic Finite and Pushdown Automata: Improved Multimodal Reasoning versus Vision Language Models (VLMs)
 
-We propose a novel model of computation with neurosymbolic automata. Like classic automata, this model of computation contains a set of states and descriptions of the transitions between these states. Unlike classic automata, every transition of the system is described by a neural network.
+Repository for the paper [Neurosymbolic Finite and Pushdown Automata: Improved Multimodal Reasoning versus Vision Language Models (VLMs)](https://neus-2025.github.io/files/papers/paper_34.pdf) published in [NeuS'25](https://neus-2025.github.io/index.html).
 
 # NeuS'25
 
